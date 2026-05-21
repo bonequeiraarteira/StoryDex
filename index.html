@@ -497,7 +497,7 @@ var DEMOS=[
 
 var chars=[],ativo=null,modoEd=false,userAtual=null,saveTimer=null;
 
-function save(){localStorage.setItem('sdx_chars',JSON.stringify(chars));localStorage.setItem('sdx_ideias','{}');}
+// localStorage removido — dados salvos no Supabase
 
 sb.auth.onAuthStateChange(function(event,session){
   if(session&&session.user){
@@ -532,13 +532,41 @@ function showSaving(){var s=document.getElementById('savingEl');s.classList.add(
 
 async function salvarDB(p){
   if(p.isDemo)return;showSaving();
-  var d={user_id:userAtual.id,nome:p.nome,signo:p.signo||'',idade:p.idade||'',temperamento:p.temperamento||'',apelidos:p.apelidos||'',aparencia:p.aparencia||'',profissao:p.profissao||'',personalidade:p.personalidade||'',historia:p.historia||'',relacoes:p.relacoes||'',detalhes:p.detalhes||'',frase:p.frase||'',atributos:p.atributos||{},ideias:p.ideias||[],tags:p.tags||[],status:p.status||'ativo',timeline:p.timeline||[],episodios:p.episodios||[],arco:p.arco||'',foto:p.foto||''};
+  // Dados básicos que sempre existem
+  var d={
+    user_id:userAtual.id,
+    nome:p.nome,signo:p.signo||'',idade:p.idade||'',
+    temperamento:p.temperamento||'',apelidos:p.apelidos||'',
+    aparencia:p.aparencia||'',profissao:p.profissao||'',
+    personalidade:p.personalidade||'',historia:p.historia||'',
+    relacoes:p.relacoes||'',detalhes:p.detalhes||'',frase:p.frase||'',
+    atributos:p.atributos||{},ideias:p.ideias||[]
+  };
+  // Colunas extras — adicionadas depois
+  try{d.tags=p.tags||[];}catch(e){}
+  try{d.status=p.status||'ativo';}catch(e){}
+  try{d.timeline=p.timeline||[];}catch(e){}
+  try{d.episodios=p.episodios||[];}catch(e){}
+  try{d.arco=p.arco||'';}catch(e){}
+  try{if(p.foto&&p.foto.length<500000)d.foto=p.foto;}catch(e){}
+
   if(p.id&&!String(p.id).startsWith('tmp_')){
     var res=await sb.from('personagens').update(d).eq('id',p.id);
-    if(res.error)console.error('update error',res.error);
+    if(res.error){
+      console.error('update error',res.error);
+      // Tenta salvar só os dados básicos
+      var db={user_id:userAtual.id,nome:p.nome,signo:p.signo||'',idade:p.idade||'',temperamento:p.temperamento||'',apelidos:p.apelidos||'',aparencia:p.aparencia||'',profissao:p.profissao||'',personalidade:p.personalidade||'',historia:p.historia||'',relacoes:p.relacoes||'',detalhes:p.detalhes||'',frase:p.frase||'',atributos:p.atributos||{},ideias:p.ideias||[]};
+      await sb.from('personagens').update(db).eq('id',p.id);
+    }
   }else{
     var r=await sb.from('personagens').insert(d).select().single();
-    if(r.error){console.error('insert error',r.error);return;}
+    if(r.error){
+      console.error('insert error',r.error);
+      // Tenta inserir só dados básicos
+      var db={user_id:userAtual.id,nome:p.nome,signo:p.signo||'',idade:p.idade||'',temperamento:p.temperamento||'',apelidos:p.apelidos||'',aparencia:p.aparencia||'',profissao:p.profissao||'',personalidade:p.personalidade||'',historia:p.historia||'',relacoes:p.relacoes||'',detalhes:p.detalhes||'',frase:p.frase||'',atributos:p.atributos||{},ideias:p.ideias||[]};
+      r=await sb.from('personagens').insert(db).select().single();
+      if(r.error){console.error('insert básico falhou',r.error);return;}
+    }
     if(r.data){
       var oldId=p.id;
       p.id=r.data.id;
