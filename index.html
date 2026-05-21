@@ -322,6 +322,10 @@ body{background:var(--cream);color:var(--ink);font-family:'DM Sans',sans-serif;f
         <input class="auth-input" type="password" id="loginSenha" placeholder="••••••••">
         <button class="auth-btn" id="btnLogin" onclick="fazerLogin()">Entrar</button>
         <div class="auth-msg" id="loginMsg"></div>
+        <div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap">
+          <button onclick="recuperarSenha()" style="flex:1;background:none;border:1px solid var(--border);border-radius:3px;padding:8px;font-family:DM Sans,sans-serif;font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);cursor:pointer;transition:all .15s" onmouseover="this.style.borderColor='var(--wine)';this.style.color='var(--wine)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--muted)'">Esqueci a senha</button>
+          <button onclick="reenviarEmail()" style="flex:1;background:none;border:1px solid var(--border);border-radius:3px;padding:8px;font-family:DM Sans,sans-serif;font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);cursor:pointer;transition:all .15s" onmouseover="this.style.borderColor='var(--wine)';this.style.color='var(--wine)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--muted)'">Reenviar e-mail</button>
+        </div>
       </div>
       <div class="auth-panel" id="authCad">
         <label class="auth-label">Código de acesso *</label>
@@ -514,7 +518,13 @@ async function carregarPersonagens(){
   document.getElementById('charList').innerHTML='<li style="padding:20px;text-align:center;color:var(--muted2);font-style:italic;font-size:14px;font-family:Cormorant Garamond,serif">Carregando…</li>';
   var res=await sb.from('personagens').select('*').order('nome');
   if(res.error){console.error(res.error);chars=DEMOS.slice();renderLista(chars);document.getElementById('cnt').textContent=chars.length;return;}
-  chars=DEMOS.concat(res.data||[]);
+  var dbChars=(res.data||[]).map(function(p){
+    // Garantir que signo seja extraído da idade se não existir
+    if(!p.signo&&p.idade){var sm=p.idade.match(/\|\s*(.+?)\s*(?:\(|$)/);if(sm)p.signo=sm[1].trim();}
+    return p;
+  });
+  // Demos primeiro, depois alfabético
+  chars=DEMOS.concat(dbChars.sort(function(a,b){return a.nome.localeCompare(b.nome,'pt-BR');}));
   renderLista(chars);document.getElementById('cnt').textContent=chars.length;
 }
 
@@ -524,10 +534,18 @@ async function salvarDB(p){
   if(p.isDemo)return;showSaving();
   var d={user_id:userAtual.id,nome:p.nome,signo:p.signo||'',idade:p.idade||'',temperamento:p.temperamento||'',apelidos:p.apelidos||'',aparencia:p.aparencia||'',profissao:p.profissao||'',personalidade:p.personalidade||'',historia:p.historia||'',relacoes:p.relacoes||'',detalhes:p.detalhes||'',frase:p.frase||'',atributos:p.atributos||{},ideias:p.ideias||[],tags:p.tags||[],status:p.status||'ativo',timeline:p.timeline||[],episodios:p.episodios||[],arco:p.arco||'',foto:p.foto||''};
   if(p.id&&!String(p.id).startsWith('tmp_')){
-    await sb.from('personagens').update(d).eq('id',p.id);
+    var res=await sb.from('personagens').update(d).eq('id',p.id);
+    if(res.error)console.error('update error',res.error);
   }else{
     var r=await sb.from('personagens').insert(d).select().single();
-    if(r.data){var idx=chars.findIndex(function(x){return x.id===p.id;});if(idx!==-1)chars[idx].id=r.data.id;}
+    if(r.error){console.error('insert error',r.error);return;}
+    if(r.data){
+      var oldId=p.id;
+      p.id=r.data.id;
+      var idx=chars.findIndex(function(x){return x.id===oldId;});
+      if(idx!==-1)chars[idx].id=r.data.id;
+      if(ativo===oldId)ativo=r.data.id;
+    }
   }
 }
 
@@ -566,6 +584,24 @@ async function fazerCadastro(){
   btn.disabled=false;btn.textContent='Criar conta';
 }
 async function fazerLogout(){await sb.auth.signOut();}
+
+async function recuperarSenha(){
+  var email=document.getElementById('loginEmail').value.trim();
+  var msg=document.getElementById('loginMsg');
+  if(!email){msg.className='auth-msg err';msg.textContent='Digite seu e-mail acima primeiro.';return;}
+  var r=await sb.auth.resetPasswordForEmail(email);
+  if(r.error){msg.className='auth-msg err';msg.textContent=r.error.message;}
+  else{msg.className='auth-msg ok';msg.textContent='E-mail de recuperação enviado! Verifique sua caixa de entrada.';}
+}
+
+async function reenviarEmail(){
+  var email=document.getElementById('loginEmail').value.trim();
+  var msg=document.getElementById('loginMsg');
+  if(!email){msg.className='auth-msg err';msg.textContent='Digite seu e-mail acima primeiro.';return;}
+  var r=await sb.auth.resend({type:'signup',email:email});
+  if(r.error){msg.className='auth-msg err';msg.textContent=r.error.message;}
+  else{msg.className='auth-msg ok';msg.textContent='E-mail de confirmação reenviado! Verifique sua caixa de entrada.';}
+}
 
 // LISTA
 function renderLista(l){
@@ -867,7 +903,10 @@ function fecharEdit(){document.getElementById('overlayEdit').classList.remove('o
 
 async function salvar(){
   var nome=document.getElementById('fNome').value.trim();if(!nome){alert('Nome é obrigatório!');return;}
-  var mi=document.getElementById('fIdade').value;var sm=mi.match(/\|\s*(.+?)\s*\(/);var s=sm?sm[1].trim():'';
+  var mi=document.getElementById('fIdade').value;
+  var sm=mi.match(/\|\s*(.+?)\s*(?:\(|$)/);var s=sm?sm[1].trim():'';
+  // Se não extraiu signo da idade, tenta pegar do campo signo separado
+  if(!s){var signoMatch=mi.match(/(?:^|\s)(Áries|Touro|Gêmeos|Câncer|Leão|Virgem|Libra|Escorpião|Sagitário|Capricórnio|Aquário|Peixes)/i);if(signoMatch)s=signoMatch[1];}
   var btn=document.getElementById('btnSalvar');btn.disabled=true;btn.textContent='Salvando…';
   if(modoEd&&ativo){
     var idx=chars.findIndex(function(x){return x.id===ativo;});if(idx===-1)return;
@@ -881,7 +920,8 @@ async function salvar(){
     await salvarDB(novo);
     chars.sort(function(a,b){if(a.isDemo&&!b.isDemo)return-1;if(!a.isDemo&&b.isDemo)return 1;return a.nome.localeCompare(b.nome,'pt-BR');});
     renderLista(chars);document.getElementById('cnt').textContent=chars.length;
-    var p2=chars.filter(function(x){return x.nome===nome&&!x.isDemo;})[0];if(p2)abrir(p2.id);
+    var novoId=novo.id;
+    var p2=chars.filter(function(x){return x.id===novoId&&!x.isDemo;})[0];if(p2)abrir(p2.id);
   }
   btn.disabled=false;btn.textContent=modoEd?'Salvar alterações':'Salvar';fecharEdit();
 }
@@ -902,8 +942,12 @@ function parseTexto(txt){
   }
   // fins: qualquer campo em negrito, com emoji, com bullet, ou linha em branco seguida de maiúscula
   var fins=[/\n\*\*[^*]+\*\*:/,/\n🔹/,/\n📌/,/\n■/,/\n[A-ZÁÉÍÓÚ][a-záéíóú]+:/];
+  function capitalizar(str){if(!str)return'';return str.replace(/\b\w/g,function(l){return l.toUpperCase();});}
+  var nomeRaw=g([/\*?\*?Nome Completo\*?\*?:\s*\*?\*?(.+?)\*?\*?\s*$/im,/\*?\*?Nome\*?\*?:\s*\*?\*?(.+?)\*?\*?\s*$/im,/FICHA DE PERSONAGEM[^a-z\n]*[–—-]\s*(.+)/i]);
+  // Se o nome estiver todo em maiúsculas, converte para Title Case
+  var nomeNorm=nomeRaw&&nomeRaw===nomeRaw.toUpperCase()&&nomeRaw.length>2?capitalizar(nomeRaw.toLowerCase()):nomeRaw;
   return{
-    nome:g([/\*?\*?Nome Completo\*?\*?:\s*\*?\*?(.+?)\*?\*?\s*$/im,/\*?\*?Nome\*?\*?:\s*\*?\*?(.+?)\*?\*?\s*$/im,/FICHA DE PERSONAGEM[^a-z\n]*[–—-]\s*(.+)/i]),
+    nome:nomeNorm,
     idade:g([/\*?\*?Idade\*?\*?:\s*(.+)/i]),
     data:g([/\*?\*?Data de Nascimento\*?\*?:\s*(.+)/i]),
     signo:g([/\*?\*?Signo\*?\*?:\s*(.+)/i]),
@@ -938,7 +982,8 @@ async function salvarColado(){
   chars.push(novo);
   await salvarDB(novo);
   chars.sort(function(a,b){if(a.isDemo&&!b.isDemo)return-1;if(!a.isDemo&&b.isDemo)return 1;return a.nome.localeCompare(b.nome,'pt-BR');});
-  fecharColar();renderLista(chars);document.getElementById('cnt').textContent=chars.length;abrir(novo.id);
+  fecharColar();renderLista(chars);document.getElementById('cnt').textContent=chars.length;
+  var novoId=novo.id;abrir(novoId);
 }
 
 // ANIVERSÁRIOS
@@ -1000,4 +1045,3 @@ document.addEventListener('keydown',function(e){if(e.key==='Enter'&&e.ctrlKey&&d
 </script>
 </body>
 </html>
-
