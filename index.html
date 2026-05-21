@@ -15,51 +15,38 @@
   --ink:#1a0f0a;--ink2:#3d2218;--ink3:#5c3828;
   --muted:#7a6050;--muted2:#a08070;
   --border:#e0d0c0;--border2:#cebfa8;
-  --rose:#b05040;--sage:#5a8060;
-  --card:#ffffff;
+  --rose:#b05040;--sage:#5a8060;--card:#ffffff;
 }
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
 body{background:var(--cream);color:var(--ink);font-family:'DM Sans',sans-serif;font-weight:300;min-height:100vh}
-::-webkit-scrollbar{width:4px}
-::-webkit-scrollbar-track{background:var(--cream2)}
-::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px}
-
-/* ── AUTH ── */
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:var(--cream2)}::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px}
 .auth-screen{display:flex;align-items:center;justify-content:center;min-height:100vh;padding:20px;background:var(--wine)}
-.auth-bg{position:fixed;inset:0;background:linear-gradient(135deg,var(--wine) 0%,#3a0f16 100%);z:-1}
 .auth-box{background:var(--cream);border-radius:6px;width:100%;max-width:400px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.4)}
 .auth-header{background:linear-gradient(135deg,var(--wine) 0%,#4a1520 100%);padding:36px 28px 28px;text-align:center;position:relative}
 .auth-header::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
 .auth-ornament{font-size:11px;color:rgba(201,164,90,.5);letter-spacing:8px;margin-bottom:12px}
 .auth-logo{font-family:'Playfair Display',serif;font-size:36px;font-weight:700;color:var(--gold2);letter-spacing:.5px;margin-bottom:4px}
-.auth-tagline{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;color:rgba(255,255,255,.4);letter-spacing:.5px}
+.auth-tagline{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;color:rgba(255,255,255,.4)}
 .auth-body{padding:28px}
 .auth-tabs{display:flex;border-bottom:1px solid var(--border);margin-bottom:24px}
 .auth-tab{flex:1;padding:10px;font-family:'DM Sans',sans-serif;font-size:10px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--muted2);background:none;border:none;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;transition:all .15s;text-align:center}
 .auth-tab.active{color:var(--wine);border-bottom-color:var(--wine)}
-.auth-panel{display:none}
-.auth-panel.active{display:block}
+.auth-panel{display:none}.auth-panel.active{display:block}
 .auth-label{display:block;font-family:'DM Sans',sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--wine);font-weight:500;margin-bottom:5px;margin-top:16px}
 .auth-label:first-child{margin-top:0}
 .auth-input{width:100%;background:var(--cream2);border:1px solid var(--border);border-radius:3px;padding:11px 12px;font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--ink);outline:none;transition:border-color .2s}
 .auth-input:focus{border-color:var(--wine)}
 .auth-input::placeholder{color:var(--muted2);font-style:italic}
-.auth-input[style*="uppercase"]{font-family:'DM Sans',sans-serif;font-size:13px;letter-spacing:2px}
 .auth-btn{width:100%;background:var(--wine);border:none;border-radius:3px;padding:13px;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:#fff;cursor:pointer;margin-top:20px;transition:all .2s}
-.auth-btn:hover{background:var(--wine2)}
-.auth-btn:disabled{opacity:.5;cursor:not-allowed}
+.auth-btn:hover{background:var(--wine2)}.auth-btn:disabled{opacity:.5;cursor:not-allowed}
 .auth-msg{margin-top:12px;font-size:13px;line-height:1.6;text-align:center;font-family:'Cormorant Garamond',serif}
-.auth-msg.err{color:var(--rose)}
-.auth-msg.ok{color:var(--sage)}
+.auth-msg.err{color:var(--rose)}.auth-msg.ok{color:var(--sage)}
+.auth-links{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+.auth-link-btn{flex:1;background:none;border:1px solid var(--border);border-radius:3px;padding:8px;font-family:'DM Sans',sans-serif;font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);cursor:pointer;transition:all .15s}
+.auth-link-btn:hover{border-color:var(--wine);color:var(--wine)}
 .auth-footer{padding:14px 28px;border-top:1px solid var(--border);text-align:center;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:12px;color:var(--muted2)}
 .auth-footer span{color:var(--gold)}
-
-/* ── APP ── */
-.app-screen{display:none}
-.app-screen.visible{display:block}
-
-/* ── HEADER ── */
+.app-screen{display:none}.app-screen.visible{display:block}
 .header{background:linear-gradient(135deg,var(--wine) 0%,#4a1520 100%);position:relative;overflow:hidden}
 .header::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),var(--gold2),transparent)}
 .header-hero{text-align:center;padding:40px 20px 28px;position:relative}
@@ -77,41 +64,28 @@ body{background:var(--cream);color:var(--ink);font-family:'DM Sans',sans-serif;f
 .hbtn.wine{border-color:rgba(255,255,255,.15);color:rgba(255,255,255,.5)}
 .hbtn.wine:hover{border-color:rgba(255,255,255,.4);color:#fff}
 .user-tag{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:12px;color:rgba(201,164,90,.35);padding:0 4px}
-
-/* ── SEARCH ── */
 .sw{max-width:740px;margin:0 auto;padding:20px 16px 0}
 .sb{position:relative}
 .sb input{width:100%;background:var(--card);border:1px solid var(--border);border-radius:3px;padding:12px 44px 12px 16px;font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--ink);outline:none;transition:border-color .2s;box-shadow:0 2px 8px rgba(107,31,42,.06)}
-.sb input:focus{border-color:var(--wine)}
-.sb input::placeholder{color:var(--muted2);font-style:italic}
+.sb input:focus{border-color:var(--wine)}.sb input::placeholder{color:var(--muted2);font-style:italic}
 .si{position:absolute;right:16px;top:50%;transform:translateY(-50%);color:var(--muted2);font-size:14px;pointer-events:none}
-
-/* ── MAIN ── */
 .main{max-width:740px;margin:0 auto;padding:20px 16px 80px}
 .stitle{font-family:'Playfair Display',serif;font-size:10px;font-style:italic;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:12px;display:flex;align-items:center;gap:10px}
 .stitle::before{content:'§';color:var(--gold);font-style:normal;font-size:12px}
 .stitle::after{content:'';flex:1;height:1px;background:var(--border)}
 .cpill{background:var(--wine);color:#fff;font-size:9px;font-weight:500;padding:2px 8px;border-radius:10px;font-family:'DM Sans',sans-serif;letter-spacing:.5px}
-
-/* ── CADASTRO ── */
 .cad-box{background:var(--card);border:1px solid var(--border);border-radius:4px;padding:16px;margin-bottom:14px;box-shadow:0 2px 8px rgba(107,31,42,.05)}
 .cad-title{font-family:'Playfair Display',serif;font-size:13px;font-style:italic;color:var(--ink2);margin-bottom:12px}
 .cad-btns{display:flex;gap:8px;flex-wrap:wrap}
 .btn-cad{flex:1;min-width:140px;background:var(--wine-light);border:1px solid rgba(107,31,42,.2);border-radius:3px;padding:12px 14px;font-family:'Cormorant Garamond',serif;font-size:15px;color:var(--wine);cursor:pointer;transition:all .2s;text-align:center}
 .btn-cad:hover{background:var(--wine-mid);border-color:var(--wine)}
 .btn-cad span{display:block;font-family:'DM Sans',sans-serif;font-size:9px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-top:3px}
-
-/* ── CHAR LIST ── */
 .cl{list-style:none;margin-bottom:14px;border:1px solid var(--border);border-radius:4px;overflow:hidden;box-shadow:0 2px 8px rgba(107,31,42,.05)}
 .ci{padding:12px 16px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border);transition:all .15s;background:var(--card);border-left:3px solid transparent}
-.ci:last-child{border-bottom:none}
-.ci:hover{background:var(--cream2);border-left-color:var(--wine2)}
-.ci.active{background:var(--wine-light);border-left-color:var(--wine)}
+.ci:last-child{border-bottom:none}.ci:hover{background:var(--cream2);border-left-color:var(--wine2)}.ci.active{background:var(--wine-light);border-left-color:var(--wine)}
 .ci-name{font-family:'Playfair Display',serif;font-size:14px;color:var(--ink);font-weight:400}
 .ci-sign{font-size:11px;color:var(--muted);font-style:italic;font-family:'Cormorant Garamond',serif}
 .demo-tag{font-size:9px;color:var(--gold);font-family:'DM Sans',sans-serif;letter-spacing:1px;text-transform:uppercase;margin-left:6px;opacity:.7}
-
-/* ── FICHA ── */
 .fc{background:var(--card);border:1px solid var(--border);border-radius:4px;overflow:hidden;display:none;animation:fu .25s ease;margin-bottom:16px;box-shadow:0 4px 20px rgba(107,31,42,.08)}
 .fc.visible{display:block}
 @keyframes fu{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
@@ -133,22 +107,14 @@ body{background:var(--cream);color:var(--ink);font-family:'DM Sans',sans-serif;f
 .ftag{font-family:'DM Sans',sans-serif;font-size:10px;letter-spacing:.8px;color:var(--gold2);background:rgba(201,164,90,.12);padding:3px 9px;border-radius:2px;border:1px solid rgba(201,164,90,.22)}
 .ftag.ap{color:rgba(220,190,160,.55);background:transparent;border-color:rgba(220,190,160,.15)}
 .ftag.status{background:rgba(90,128,96,.15);color:#7ab090;border-color:rgba(90,128,96,.25)}
-
-/* ── TABS ── */
 .tabs{display:flex;border-bottom:1px solid var(--border);background:var(--cream2);overflow-x:auto}
 .tab{padding:10px 14px;font-family:'DM Sans',sans-serif;font-size:9px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted2);background:none;border:none;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;transition:all .15s;white-space:nowrap;flex-shrink:0}
-.tab:hover{color:var(--ink2)}
-.tab.active{color:var(--wine);border-bottom-color:var(--wine)}
-.tp{display:none;padding:20px}
-.tp.active{display:block}
-
-/* ── FIELDS ── */
+.tab:hover{color:var(--ink2)}.tab.active{color:var(--wine);border-bottom-color:var(--wine)}
+.tp{display:none;padding:20px}.tp.active{display:block}
 .flds{display:flex;flex-direction:column;gap:18px}
 .fl{font-family:'DM Sans',sans-serif;font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:var(--wine);margin-bottom:4px;font-weight:500}
 .fv{font-size:15px;line-height:1.8;color:var(--ink2);white-space:pre-wrap;font-family:'Cormorant Garamond',serif}
 .fq{border-left:3px solid var(--gold);padding:12px 16px;font-family:'Playfair Display',serif;font-style:italic;font-size:16px;color:var(--muted);background:var(--gold3);margin-top:6px;border-radius:0 3px 3px 0;line-height:1.6}
-
-/* ── ATRIBUTOS ── */
 .attr-acts{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap}
 .btn-roll{background:var(--wine-light);border:1px solid rgba(107,31,42,.2);border-radius:3px;padding:8px 16px;font-family:'DM Sans',sans-serif;font-size:10px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--wine);cursor:pointer;transition:all .2s}
 .btn-roll:hover{background:var(--wine-mid)}
@@ -163,15 +129,11 @@ body{background:var(--cream);color:var(--ink);font-family:'DM Sans',sans-serif;f
 .aname{font-family:'Cormorant Garamond',serif;font-size:14px;color:var(--ink2);min-width:140px;flex-shrink:0}
 .adots{display:flex;gap:5px}
 .adot{width:22px;height:22px;border-radius:50%;border:1.5px solid var(--border2);background:transparent;cursor:pointer;transition:all .15s;display:flex;align-items:center;justify-content:center;font-size:9px;color:transparent;flex-shrink:0;font-family:'DM Sans',sans-serif;font-weight:700}
-.adot.filled{background:var(--wine);border-color:var(--wine);color:#fff}
-.adot:hover{border-color:var(--wine);transform:scale(1.1)}
+.adot.filled{background:var(--wine);border-color:var(--wine);color:#fff}.adot:hover{border-color:var(--wine);transform:scale(1.1)}
 .aval{font-family:'Playfair Display',serif;font-size:13px;color:var(--muted);min-width:14px;text-align:right}
-
-/* ── IDEIAS ── */
 .ii-wrap{display:flex;gap:8px;margin-bottom:16px}
 .ii-input{flex:1;background:var(--cream2);border:1px solid var(--border);border-radius:3px;padding:10px 12px;font-family:'Cormorant Garamond',serif;font-size:15px;color:var(--ink);outline:none;resize:none;min-height:50px;transition:border-color .2s}
-.ii-input:focus{border-color:var(--wine)}
-.ii-input::placeholder{color:var(--muted2);font-style:italic}
+.ii-input:focus{border-color:var(--wine)}.ii-input::placeholder{color:var(--muted2);font-style:italic}
 .btn-ii{background:var(--wine);color:#fff;border:none;border-radius:3px;padding:0 14px;font-size:18px;cursor:pointer;transition:opacity .15s;flex-shrink:0}
 .btn-ii:hover{opacity:.85}
 .ilist{list-style:none}
@@ -184,12 +146,9 @@ body{background:var(--cream);color:var(--ink);font-family:'DM Sans',sans-serif;f
 .btn-di:hover{color:var(--rose)}
 .empty{text-align:center;padding:28px 0;color:var(--muted2);font-family:'Playfair Display',serif;font-style:italic;font-size:15px}
 .badge{background:var(--wine);color:#fff;font-size:9px;font-weight:500;padding:1px 6px;border-radius:8px;margin-left:5px;font-family:'DM Sans',sans-serif}
-
-/* ── LINHA DO TEMPO ── */
-.tl-add{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap}
+.tl-add{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap}
 .tl-input{flex:1;min-width:80px;background:var(--cream2);border:1px solid var(--border);border-radius:3px;padding:9px 12px;font-family:'Cormorant Garamond',serif;font-size:14px;color:var(--ink);outline:none;transition:border-color .2s}
-.tl-input:focus{border-color:var(--wine)}
-.tl-input::placeholder{color:var(--muted2);font-style:italic}
+.tl-input:focus{border-color:var(--wine)}.tl-input::placeholder{color:var(--muted2);font-style:italic}
 .tl-list{list-style:none;position:relative;padding-left:20px}
 .tl-list::before{content:'';position:absolute;left:6px;top:0;bottom:0;width:1px;background:var(--border)}
 .tl-item{position:relative;padding:0 0 20px 20px}
@@ -203,37 +162,23 @@ body{background:var(--cream);color:var(--ink);font-family:'DM Sans',sans-serif;f
 .tl-type.conquista{background:rgba(90,128,96,.08);color:var(--sage)}
 .btn-tl-del{position:absolute;right:0;top:0;background:none;border:none;color:var(--border2);cursor:pointer;font-size:11px;transition:color .15s}
 .btn-tl-del:hover{color:var(--rose)}
-
-/* ── EPISÓDIOS ── */
 .ep-add{display:flex;gap:8px;margin-bottom:16px}
 .ep-list{list-style:none}
 .ep-item{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:1px solid var(--border)}
 .ep-item:last-child{border-bottom:none}
 .ep-num{font-family:'Playfair Display',serif;font-size:13px;color:var(--wine);min-width:30px;font-weight:600}
 .ep-text{flex:1;font-size:14px;line-height:1.6;color:var(--ink2);font-family:'Cormorant Garamond',serif}
-
-/* ── ARCO ── */
 .arco-field{background:var(--cream2);border:1px solid var(--border);border-radius:3px;padding:12px;font-family:'Cormorant Garamond',serif;font-size:15px;color:var(--ink);outline:none;resize:vertical;min-height:100px;width:100%;line-height:1.7;transition:border-color .2s}
-.arco-field:focus{border-color:var(--wine)}
-.arco-field::placeholder{color:var(--muted2);font-style:italic}
+.arco-field:focus{border-color:var(--wine)}.arco-field::placeholder{color:var(--muted2);font-style:italic}
 .btn-save-arco{background:var(--wine);border:none;border-radius:3px;padding:9px 20px;font-family:'DM Sans',sans-serif;font-size:10px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:#fff;cursor:pointer;margin-top:10px;transition:opacity .15s}
 .btn-save-arco:hover{opacity:.85}
-
-/* ── TAGS ── */
 .tags-wrap{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
 .tag-item{display:flex;align-items:center;gap:6px;background:var(--wine-light);border:1px solid rgba(107,31,42,.15);border-radius:20px;padding:5px 12px;font-family:'DM Sans',sans-serif;font-size:11px;color:var(--wine)}
 .tag-del{background:none;border:none;color:var(--muted2);cursor:pointer;font-size:11px;padding:0;line-height:1;transition:color .15s}
 .tag-del:hover{color:var(--rose)}
 .tag-add{display:flex;gap:8px}
 .tag-input{flex:1;background:var(--cream2);border:1px solid var(--border);border-radius:3px;padding:8px 12px;font-family:'DM Sans',sans-serif;font-size:13px;color:var(--ink);outline:none;transition:border-color .2s}
-.tag-input:focus{border-color:var(--wine)}
-.tag-input::placeholder{color:var(--muted2)}
-
-/* ── STATUS SELECT ── */
-.status-select{background:var(--cream2);border:1px solid var(--border);border-radius:3px;padding:9px 12px;font-family:'DM Sans',sans-serif;font-size:13px;color:var(--ink);outline:none;cursor:pointer;width:100%;transition:border-color .2s}
-.status-select:focus{border-color:var(--wine)}
-
-/* ── MODAIS ── */
+.tag-input:focus{border-color:var(--wine)}.tag-input::placeholder{color:var(--muted2)}
 .overlay{display:none;position:fixed;inset:0;background:rgba(26,15,10,.75);z-index:100;align-items:flex-end;justify-content:center;backdrop-filter:blur(3px)}
 .overlay.open{display:flex}
 .modal{background:var(--cream);border:1px solid var(--border);border-radius:10px 10px 0 0;width:100%;max-width:640px;max-height:93vh;overflow-y:auto;animation:su .25s ease;box-shadow:0 -4px 30px rgba(107,31,42,.2)}
@@ -252,57 +197,39 @@ body{background:var(--cream);color:var(--ink);font-family:'DM Sans',sans-serif;f
 .bcancel{background:none;border:1px solid var(--border2);border-radius:3px;padding:9px 18px;font-family:'DM Sans',sans-serif;font-size:10px;font-weight:500;letter-spacing:1px;text-transform:uppercase;color:var(--muted);cursor:pointer;transition:all .15s}
 .bcancel:hover{border-color:var(--ink2);color:var(--ink)}
 .bsave{background:var(--wine);border:none;border-radius:3px;padding:9px 22px;font-family:'DM Sans',sans-serif;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#fff;cursor:pointer;transition:opacity .15s}
-.bsave:hover{opacity:.85}
-.bsave:disabled{opacity:.5;cursor:not-allowed}
+.bsave:hover{opacity:.85}.bsave:disabled{opacity:.5;cursor:not-allowed}
 .bsave-del{background:var(--rose);border:none;border-radius:3px;padding:9px 22px;font-family:'DM Sans',sans-serif;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#fff;cursor:pointer}
-
-/* ── PASTE ── */
 .paste-area{background:var(--cream2);border:1px dashed var(--border2);border-radius:3px;padding:14px;font-family:'Cormorant Garamond',serif;font-size:15px;color:var(--ink);width:100%;min-height:160px;outline:none;resize:vertical;line-height:1.7;transition:border-color .2s}
-.paste-area:focus{border-color:var(--wine);border-style:solid}
-.paste-area::placeholder{color:var(--muted2);font-style:italic}
+.paste-area:focus{border-color:var(--wine);border-style:solid}.paste-area::placeholder{color:var(--muted2);font-style:italic}
 .prev-box{margin-top:14px;background:var(--gold3);border:1px solid rgba(201,164,90,.2);border-radius:3px;padding:14px;display:none}
 .prev-box.show{display:block}
 .prev-title{font-family:'DM Sans',sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--wine);font-weight:500;margin-bottom:10px}
 .prev-row{display:flex;gap:8px;margin-bottom:5px;font-size:13px}
 .prev-label{color:var(--muted);min-width:90px;flex-shrink:0;font-family:'DM Sans',sans-serif;font-size:10px}
 .prev-val{color:var(--ink2);line-height:1.5;font-family:'Cormorant Garamond',serif}
-
-/* ── CONFIRM ── */
 .conf-overlay{display:none;position:fixed;inset:0;background:rgba(26,15,10,.8);z-index:200;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px)}
 .conf-overlay.open{display:flex}
 .conf-box{background:var(--cream);border:1px solid var(--border);border-radius:8px;width:100%;max-width:320px;overflow:hidden;animation:fu .2s ease;box-shadow:0 12px 40px rgba(107,31,42,.3)}
 .conf-msg{padding:20px;font-size:14px;color:var(--ink2);line-height:1.7;font-family:'Cormorant Garamond',serif}
 .conf-footer{padding:12px 20px;border-top:1px solid var(--border);display:flex;gap:8px;justify-content:flex-end}
-
-/* ── ANIVERSÁRIOS ── */
 .aniv-mes{padding:10px 20px 4px;font-family:'DM Sans',sans-serif;font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:var(--wine);font-weight:500;border-bottom:1px solid var(--border)}
 .aniv-item{display:flex;align-items:center;gap:14px;padding:11px 20px;border-bottom:1px solid var(--border);cursor:pointer;transition:background .15s}
 .aniv-item:hover{background:var(--cream2)}
 .aniv-data{font-family:'Playfair Display',serif;font-size:16px;color:var(--wine);min-width:42px;text-align:center}
-.aniv-info{flex:1}
-.aniv-nome{font-family:'Playfair Display',serif;font-size:14px;color:var(--ink)}
+.aniv-info{flex:1}.aniv-nome{font-family:'Playfair Display',serif;font-size:14px;color:var(--ink)}
 .aniv-signo{font-size:11px;color:var(--muted);font-style:italic;font-family:'Cormorant Garamond',serif}
 .aniv-prox{font-family:'DM Sans',sans-serif;font-size:10px;color:var(--sage);font-weight:500;white-space:nowrap}
-
-/* ── SAVING ── */
 .saving{position:fixed;bottom:20px;right:20px;background:var(--wine);color:rgba(201,164,90,.9);font-family:'DM Sans',sans-serif;font-size:10px;letter-spacing:1px;padding:8px 14px;border-radius:3px;display:none;z-index:300;animation:fu .2s ease}
 .saving.show{display:block}
-
-/* ── FOOTER ── */
 .dev-footer{text-align:center;padding:20px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13px;color:var(--muted2);border-top:1px solid var(--border);line-height:1.8}
 .dev-footer span{color:var(--gold)}
-
-/* ── MAPA ── */
-.mapa-wrap{text-align:center;padding:20px 0}
 .mapa-canvas{width:100%;min-height:300px;border:1px solid var(--border);border-radius:4px;background:var(--cream2);position:relative;overflow:hidden}
 .mapa-node{position:absolute;background:var(--wine);color:#fff;border-radius:50%;width:56px;height:56px;display:flex;align-items:center;justify-content:center;font-family:'DM Sans',sans-serif;font-size:9px;font-weight:500;text-align:center;cursor:pointer;transition:all .2s;border:2px solid var(--gold);box-shadow:0 4px 12px rgba(107,31,42,.3);line-height:1.2;padding:4px}
-.mapa-node:hover{transform:scale(1.1);box-shadow:0 6px 20px rgba(107,31,42,.4)}
+.mapa-node:hover{transform:scale(1.1)}
 .mapa-empty{display:flex;align-items:center;justify-content:center;height:200px;font-family:'Playfair Display',serif;font-style:italic;font-size:15px;color:var(--muted2)}
 </style>
 </head>
 <body>
-
-<!-- AUTH -->
 <div class="auth-screen" id="authScreen">
   <div class="auth-box">
     <div class="auth-header">
@@ -322,9 +249,9 @@ body{background:var(--cream);color:var(--ink);font-family:'DM Sans',sans-serif;f
         <input class="auth-input" type="password" id="loginSenha" placeholder="••••••••">
         <button class="auth-btn" id="btnLogin" onclick="fazerLogin()">Entrar</button>
         <div class="auth-msg" id="loginMsg"></div>
-        <div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap">
-          <button onclick="recuperarSenha()" style="flex:1;background:none;border:1px solid var(--border);border-radius:3px;padding:8px;font-family:DM Sans,sans-serif;font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);cursor:pointer;transition:all .15s" onmouseover="this.style.borderColor='var(--wine)';this.style.color='var(--wine)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--muted)'">Esqueci a senha</button>
-          <button onclick="reenviarEmail()" style="flex:1;background:none;border:1px solid var(--border);border-radius:3px;padding:8px;font-family:DM Sans,sans-serif;font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);cursor:pointer;transition:all .15s" onmouseover="this.style.borderColor='var(--wine)';this.style.color='var(--wine)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--muted)'">Reenviar e-mail</button>
+        <div class="auth-links">
+          <button class="auth-link-btn" onclick="recuperarSenha()">Esqueci a senha</button>
+          <button class="auth-link-btn" onclick="reenviarEmail()">Reenviar e-mail</button>
         </div>
       </div>
       <div class="auth-panel" id="authCad">
@@ -344,7 +271,6 @@ body{background:var(--cream);color:var(--ink);font-family:'DM Sans',sans-serif;f
   </div>
 </div>
 
-<!-- APP -->
 <div class="app-screen" id="appScreen">
   <div class="header">
     <div class="header-hero">
@@ -363,12 +289,10 @@ body{background:var(--cream);color:var(--ink);font-family:'DM Sans',sans-serif;f
       <button class="hbtn wine" onclick="fazerLogout()">Sair</button>
     </div>
   </div>
-
   <div class="sw"><div class="sb">
     <input type="text" id="searchInput" placeholder="Buscar personagem por nome ou tag…" oninput="filtrar(this.value)">
     <span class="si">⌕</span>
   </div></div>
-
   <div class="main">
     <div class="stitle">Personagens <span class="cpill" id="cnt">0</span></div>
     <div class="cad-box">
@@ -379,15 +303,11 @@ body{background:var(--cream);color:var(--ink);font-family:'DM Sans',sans-serif;f
       </div>
     </div>
     <ul class="cl" id="charList"></ul>
-
     <div class="fc" id="fichaCard">
       <div class="fh">
         <div class="fh-top">
           <div class="fh-left">
-            <div class="char-photo" id="charPhoto" onclick="triggerPhoto()">📷
-              <img id="charPhotoImg" style="display:none">
-            </div>
-            <input type="file" id="photoInput" class="char-photo-input" accept="image/*" onchange="uploadPhoto(this)">
+            <div class="char-photo" id="charPhoto" onclick="triggerPhoto()">📷<input type="file" id="photoInput" class="char-photo-input" accept="image/*" onchange="uploadPhoto(this)"></div>
             <div class="fname" id="fichaName"></div>
           </div>
           <div class="fh-btns">
@@ -401,11 +321,9 @@ body{background:var(--cream);color:var(--ink);font-family:'DM Sans',sans-serif;f
       <div id="fichaTabsContent"></div>
     </div>
   </div>
-
   <div class="dev-footer">Desenvolvido por <span>Gabriela Fernanda P Albino</span><br>Bonequeira Arteira | Barbolitando Dolls</div>
 </div>
 
-<!-- CONFIRM -->
 <div class="conf-overlay" id="confOverlay">
   <div class="conf-box">
     <div class="mh" style="border-radius:8px 8px 0 0"><div class="mt">Excluir personagem</div></div>
@@ -414,43 +332,40 @@ body{background:var(--cream);color:var(--ink);font-family:'DM Sans',sans-serif;f
   </div>
 </div>
 
-<!-- MODAL NOVO/EDITAR -->
 <div class="overlay" id="overlayEdit">
   <div class="modal">
     <div class="mh"><div class="mt" id="editTitle">Novo Personagem</div><button class="mx" onclick="fecharEdit()">✕</button></div>
     <div class="mb">
       <label>Nome completo *</label><input type="text" id="fNome" placeholder="Ex: Elena Voss">
       <label>Idade / Signo</label><input type="text" id="fIdade" placeholder="Ex: 28 anos | Escorpião (03/11)">
-      <label>Temperamento</label><input type="text" id="fTemp" placeholder="Ex: Colérico com traços melancólicos">
+      <label>Temperamento</label><input type="text" id="fTemp">
       <label>Status</label>
       <select id="fStatus"><option value="ativo">Ativo na história</option><option value="arquivado">Arquivado</option><option value="futuro">Ideia futura</option></select>
-      <label>Apelidos</label><input type="text" id="fApel" placeholder="Ex: El (amigos próximos)">
-      <label>Aparência</label><textarea id="fApar" placeholder="Altura, cor dos olhos, cabelo, traços marcantes…" style="min-height:70px"></textarea>
-      <label>Profissão</label><textarea id="fProf" placeholder="Profissão e cargo…" style="min-height:60px"></textarea>
-      <label>Personalidade</label><textarea id="fPers" placeholder="Descreva a personalidade…" style="min-height:100px"></textarea>
-      <label>História</label><textarea id="fHist" placeholder="História e background…" style="min-height:100px"></textarea>
-      <label>Relações-chave</label><textarea id="fRel" placeholder="Ex: Ana (melhor amiga), Carlos (rival)…"></textarea>
-      <label>Detalhes / Curiosidades</label><textarea id="fDet" placeholder="Detalhes, hábitos, curiosidades…"></textarea>
-      <label>Frase marcante</label><input type="text" id="fFrase" placeholder='"A frase que define o personagem"'>
+      <label>Apelidos</label><input type="text" id="fApel">
+      <label>Aparência</label><textarea id="fApar" style="min-height:70px"></textarea>
+      <label>Profissão</label><textarea id="fProf" style="min-height:60px"></textarea>
+      <label>Personalidade</label><textarea id="fPers" style="min-height:100px"></textarea>
+      <label>História</label><textarea id="fHist" style="min-height:100px"></textarea>
+      <label>Relações-chave</label><textarea id="fRel"></textarea>
+      <label>Detalhes / Curiosidades</label><textarea id="fDet"></textarea>
+      <label>Frase marcante</label><input type="text" id="fFrase">
     </div>
     <div class="mf"><button class="bcancel" onclick="fecharEdit()">Cancelar</button><button class="bsave" id="btnSalvar" onclick="salvar()">Salvar</button></div>
   </div>
 </div>
 
-<!-- MODAL COLAR -->
 <div class="overlay" id="overlayColar">
   <div class="modal">
     <div class="mh"><div class="mt">📋 Colar Ficha</div><button class="mx" onclick="fecharColar()">✕</button></div>
     <div class="mb">
       <label>Cole o texto completo da ficha</label>
-      <textarea class="paste-area" id="pasteArea" placeholder="Cole aqui o texto. Funciona com qualquer formato — com ou sem emojis, com negrito ou sem. Exemplos de campos reconhecidos:&#10;&#10;Nome Completo: ...&#10;Idade: ...&#10;Signo: ...&#10;Temperamento: ...&#10;Aparência: ...&#10;Profissão: ...&#10;Personalidade: ...&#10;História: ...&#10;Relações: ...&#10;Curiosidades: ...&#10;Frase Marcante: ..." oninput="parsePreview()"></textarea>
+      <textarea class="paste-area" id="pasteArea" placeholder="Cole aqui o texto. Funciona com qualquer formato — com ou sem emojis 🔹, com negrito ou sem:&#10;&#10;Nome: ...&#10;Idade: ...&#10;Data de Nascimento: ...&#10;Signo: ...&#10;Temperamento: ...&#10;Profissão: ...&#10;Personalidade: ...&#10;História: ...&#10;Relações: ...&#10;Curiosidades: ...&#10;Frase Marcante: ..." oninput="parsePreview()"></textarea>
       <div class="prev-box" id="prevBox"><div class="prev-title">✦ Prévia</div><div id="prevContent"></div></div>
     </div>
     <div class="mf"><button class="bcancel" onclick="fecharColar()">Cancelar</button><button class="bsave" onclick="salvarColado()">Salvar ficha</button></div>
   </div>
 </div>
 
-<!-- MODAL ANIVERSÁRIOS -->
 <div class="overlay" id="overlayAniv">
   <div class="modal">
     <div class="mh"><div class="mt">🎂 Aniversários</div><button class="mx" onclick="fecharAniv()">✕</button></div>
@@ -461,13 +376,12 @@ body{background:var(--cream);color:var(--ink);font-family:'DM Sans',sans-serif;f
   </div>
 </div>
 
-<!-- MODAL MAPA -->
 <div class="overlay" id="overlayMapa">
   <div class="modal">
     <div class="mh"><div class="mt">🌳 Mapa de Relações</div><button class="mx" onclick="fecharMapa()">✕</button></div>
     <div class="mb">
       <div class="mapa-canvas" id="mapaCanvas"></div>
-      <p style="margin-top:12px;font-size:12px;color:var(--muted2);font-family:'DM Sans',sans-serif;text-align:center">Toque num personagem para ver suas relações. Configure as relações na aba Relações de cada ficha.</p>
+      <p style="margin-top:12px;font-size:12px;color:var(--muted2);font-family:'DM Sans',sans-serif;text-align:center">Toque num personagem para abrir a ficha.</p>
     </div>
   </div>
 </div>
@@ -487,17 +401,14 @@ var GRUPOS=[
   {nome:"Estilo de Vida",attrs:["Caseira","Culinária","Dona de Casa","Gosta de Animais","Gosta de Crianças","Pratica Esporte","Exercício Físico","Gosta de Beber","Otaku","Dançarina","Viajante","Workaholic"]},
   {nome:"Relacionamentos",attrs:["Romântica","Leal","Ciúmenta","Apegada","Independente","Sedutora","Protetora","Possessiva","Carinhosa","Fria","Manipuladora","Generosa","Ressentida","Confiante","Desconfiada","Passional"]}
 ];
-function attrDef(){var o={};GRUPOS.forEach(function(g){g.attrs.forEach(function(a){o[a]=0;});});return o;}
 
 var DEMOS=[
-  {id:'demo_storydex',nome:'StoryDex',signo:'Touro',idade:'1 ano | Touro (20/05)',temperamento:'Fleumático com traços sanguíneos',status:'ativo',apelidos:'Dex (usuários carinhosos) · O Guardião das Histórias',aparencia:'',profissao:'Banco de personagens e organizador de universos fictícios. Ferramenta criada para escritores, criadores de universos e colecionadores de dolls.',personalidade:'Organizado, silencioso e cheio de histórias guardadas. StoryDex não fala — ele escuta. Cada personagem que chega traz consigo um universo inteiro, e ele guarda tudo com cuidado e precisão.',historia:'StoryDex nasceu do desejo de ter um banco de dados para colocar os personagens e facilitar a vida de quem cria um universo cheio de histórias e de quem escreve livros. Foi criado em 20 de maio de 2026 por Gabriela Fernanda P Albino — Bonequeira Arteira | Barbolitando Dolls.',relacoes:'Gabriela Albino (sua criadora), Escritores e Criadores (todos que confiam suas histórias a ele), Personagens (seus verdadeiros habitantes).',detalhes:'Guarda segredos de personagens que ainda não foram escritos. Nunca perde uma ficha. Tem um carinho especial por frases marcantes.',frase:'Todo personagem merece um lar. Eu sou esse lugar.',tags:['demo','ferramenta'],atributos:{},ideias:[{texto:'Explore as abas Ficha, Atributos, Ideias, Linha do Tempo e mais para ver tudo que o StoryDex oferece!',data:'Dica'},{texto:'Use o botão 📋 Colar ficha para cadastrar personagens rapidamente.',data:'Dica'},{texto:'Na aba 🎲 Atributos você pode sortear os pontos aleatoriamente ou preencher manualmente.',data:'Dica'}],timeline:[],episodios:[],arco:'',isDemo:true},
-  {id:'demo_elara',nome:'Elara Voss',signo:'Peixes',idade:'26 anos | Peixes (03/03)',temperamento:'Melancólico com traços sanguíneos',status:'ativo',apelidos:'El (amigos próximos), A Criadora (como é conhecida no seu universo online)',aparencia:'Cabelos longos e escuros, olhos castanho-esverdeados que mudam de tom conforme a luz. Sempre com um caderno na bolsa e tinta nos dedos.',profissao:'Escritora de fantasia e criadora do universo Valdoria — mundo fictício com mais de 40 personagens, três reinos e uma história que começou num caderno aos 14 anos.',personalidade:'Sonhadora, intensa e incrivelmente detalhista. Elara não cria personagens — ela os encontra. Cada um chega com nome, voz e história própria, como se sempre tivessem existido esperando por ela. Introvertida no mundo real, infinitamente expansiva dentro dos seus universos.',historia:'Começou a escrever aos 14 anos num caderno comprado numa papelaria de bairro. O que era um conto virou um universo inteiro. Aos 20 anos decidiu levar a sério e começou a publicar online. Hoje tem uma comunidade apaixonada esperando cada capítulo.',relacoes:'Kael Dawnborn (protagonista masculino de Valdoria — personagem mais complexo que já criou), Seraphine (antagonista favorita — uma vilã que o leitor acaba amando), Comunidade Valdoria (leitores que se tornaram família).',detalhes:'Ainda guarda o caderno original com a primeira versão de Valdoria. Faz playlists específicas para cada personagem enquanto escreve. Desenha os personagens antes de escrever sobre eles. Tem medo de que a história acabe.',frase:'Eu não invento personagens. Eu os escuto — e escrevo o que eles me contam.',tags:['demo','escritora','fantasia'],atributos:{Criatividade:6,Inteligência:5,Curiosidade:6,Organização:2,Timidez:4,Empatia:5},ideias:[{texto:'Elara poderia ter um episódio onde um dos seus personagens "escapa" da história e começa a agir por conta própria.',data:'Ideia demo'},{texto:'Seu relacionamento com os leitores pode ser explorado — eles esperam tanto por ela quanto ela espera por suas histórias.',data:'Ideia demo'}],timeline:[{quando:'Aos 14 anos',texto:'Comprou o caderno que se tornaria o berço de Valdoria. Escreveu a primeira frase em 3 horas.',tipo:'marco'},{quando:'Aos 18 anos',texto:'Terminou o primeiro livro completo de Valdoria — 340 páginas manuscritas.',tipo:'conquista'},{quando:'Aos 20 anos',texto:'Começou a publicar online. Primeiro capítulo recebeu 200 comentários em um dia.',tipo:'conquista'},{quando:'Hoje',texto:'Gerencia 40+ personagens, 3 reinos e uma comunidade apaixonada.',tipo:'marco'}],episodios:[{num:'Vol. 1',texto:'A Chave de Valdoria — apresentação do universo e dos personagens principais'},{num:'Vol. 2',texto:'O Exílio de Seraphine — origem da antagonista favorita dos leitores'}],arco:'Elara começa insegura sobre a qualidade da sua escrita e termina percebendo que seu universo é único e que seus personagens têm vida própria.',isDemo:true},
-  {id:'demo_cairo',nome:'Cairo Ashford',signo:'Leão',idade:'29 anos | Leão (17/08)',temperamento:'Sanguíneo com traços coléricos',status:'ativo',apelidos:'Cai (amigos), Mestre Cairo (na mesa de RPG — leva muito a sério)',aparencia:'Alto, porte atlético, sempre com um caderno de anotações gigante debaixo do braço. Barba curta e olhos expressivos que acendem quando fala de Ironveil.',profissao:'Designer gráfico de dia, mestre de RPG e criador de universos nas noites e fins de semana. Fundador do universo Ironveil — cenário com mais de 60 personagens jogáveis e uma mitologia própria.',personalidade:'Expansivo, criativo e apaixonado por construção de mundos. Cairo não consegue criar algo simples — cada ideia vira um universo inteiro. Competitivo de forma saudável, adora quando os jogadores surpreendem o enredo que criou.',historia:'Começou no RPG de mesa aos 16 anos como jogador. Logo percebeu que o que mais gostava era criar o mundo. Aos 22 criou Ironveil do zero. Gerenciar mais de 60 personagens virou um caos até descobrir que existia uma ferramenta feita exatamente para isso.',relacoes:'Grupo Ironveil (jogadores que habitam o universo que criou — segunda família), Lyra Kessler (NPC favorito — uma espiã que os jogadores adoram mais que os protagonistas).',detalhes:'Tem um caderno físico só para as árvores genealógicas dos personagens de Ironveil. Já cancelou sessão de RPG para desenvolver melhor a backstory de um personagem secundário. Sabe o signo e aniversário de cada um dos 60+ personagens de cabeça.',frase:'Um bom universo não se escreve — se constrói. Tijolo por tijolo, personagem por personagem.',tags:['demo','rpg','criador'],atributos:{Criatividade:6,Liderança:5,Carisma:6,Competitiva:5,Perfeccionismo:6,Organização:4},ideias:[{texto:'Cairo poderia ter uma sessão especial onde os jogadores descobrem que Lyra é na verdade a filha perdida do rei.',data:'Ideia demo'},{texto:'Ironveil poderia virar um livro de cenário publicado — Cairo já tem material suficiente para isso.',data:'Ideia demo'}],timeline:[{quando:'Aos 16 anos',texto:'Primeiro contato com RPG de mesa. Percebeu imediatamente que preferia criar o mundo a habitá-lo.',tipo:'marco'},{quando:'Aos 22 anos',texto:'Criou Ironveil do zero. Primeira sessão durou 8 horas.',tipo:'conquista'},{quando:'Aos 25 anos',texto:'Grupo Ironveil se expandiu para 8 jogadores fixos.',tipo:'conquista'},{quando:'Hoje',texto:'60+ personagens, mitologia completa e sonho de publicar como livro oficial.',tipo:'marco'}],episodios:[{num:'Campanha 1',texto:'A Queda de Ironveil — campanha fundadora do universo'},{num:'Campanha 2',texto:'O Segredo de Lyra Kessler — a sessão mais épica até hoje'}],arco:'Cairo começa como mestre caótico e vai se tornando um criador metódico que entende que universos ricos precisam de organização para brilhar.',isDemo:true}
+  {id:'demo_sd',nome:'StoryDex',signo:'Touro',idade:'1 ano | Touro (20/05)',temperamento:'Fleumático com traços sanguíneos',status:'ativo',apelidos:'Dex · O Guardião das Histórias',aparencia:'',profissao:'Banco de personagens e organizador de universos fictícios.',personalidade:'Organizado, silencioso e cheio de histórias guardadas. Não fala — escuta. Cada personagem que chega traz um universo inteiro, e ele guarda tudo com cuidado.',historia:'Nasceu do desejo de organizar personagens e facilitar a vida de quem cria universos. Foi criado em 20 de maio de 2026 por Gabriela Fernanda P Albino.',relacoes:'Gabriela Albino (criadora), Escritores e Criadores (usuários), Personagens (habitantes).',detalhes:'Guarda segredos de personagens que ainda não foram escritos. Nunca perde uma ficha.',frase:'Todo personagem merece um lar. Eu sou esse lugar.',tags:['demo'],atributos:{},ideias:[{texto:'Explore as abas: Ficha, Atributos, Ideias, Linha do Tempo, Episódios, Arco e Tags!',data:'Dica'},{texto:'Use Colar ficha para cadastrar personagens rapidamente colando o texto.',data:'Dica'},{texto:'Na aba Atributos você pode sortear os pontos ou preencher manualmente.',data:'Dica'}],timeline:[],episodios:[],arco:'',isDemo:true},
+  {id:'demo_elara',nome:'Elara Voss',signo:'Peixes',idade:'26 anos | Peixes (03/03)',temperamento:'Melancólico com traços sanguíneos',status:'ativo',apelidos:'El (amigos próximos), A Criadora',aparenca:'Cabelos longos e escuros, olhos castanho-esverdeados. Sempre com caderno na bolsa.',profissao:'Escritora de fantasia e criadora do universo Valdoria — mais de 40 personagens, três reinos.',personalidade:'Sonhadora, intensa e incrivelmente detalhista. Não cria personagens — os encontra. Introvertida no mundo real, expansiva nos seus universos.',historia:'Começou a escrever aos 14 anos num caderno de papelaria. O que era um conto virou um universo inteiro. Aos 20 começou a publicar online e hoje tem uma comunidade apaixonada.',relacoes:'Kael Dawnborn (protagonista de Valdoria), Seraphine (antagonista favorita), Comunidade Valdoria (leitores que viraram família).',detalhes:'Ainda guarda o caderno original de Valdoria. Faz playlists para cada personagem. Desenha antes de escrever. Tem medo de que a história acabe.',frase:'Eu não invento personagens. Eu os escuto — e escrevo o que eles me contam.',tags:['demo','escritora','fantasia'],atributos:{Criatividade:6,Inteligência:5,Curiosidade:6,Organização:2,Empatia:5},ideias:[{texto:'Elara poderia ter um episódio onde um personagem escapa da história.',data:'Ideia'},{texto:'Seu relacionamento com os leitores merece um arco próprio.',data:'Ideia'}],timeline:[{quando:'Aos 14 anos',texto:'Comprou o caderno que se tornaria Valdoria.',tipo:'marco'},{quando:'Aos 18 anos',texto:'Terminou o primeiro livro — 340 páginas manuscritas.',tipo:'conquista'},{quando:'Aos 20 anos',texto:'Começou a publicar online. Primeiro capítulo: 200 comentários em um dia.',tipo:'conquista'}],episodios:[{num:'Vol. 1',texto:'A Chave de Valdoria — apresentação do universo'},{num:'Vol. 2',texto:'O Exílio de Seraphine — origem da antagonista favorita'}],arco:'Elara começa insegura e termina percebendo que seu universo é único e seus personagens têm vida própria.',isDemo:true},
+  {id:'demo_cairo',nome:'Cairo Ashford',signo:'Leão',idade:'29 anos | Leão (17/08)',temperamento:'Sanguíneo com traços coléricos',status:'ativo',apelidos:'Cai (amigos), Mestre Cairo (RPG)',aparenca:'Alto, sempre com caderno gigante. Barba curta, olhos que acendem ao falar de Ironveil.',profissao:'Designer gráfico de dia, mestre de RPG e criador do universo Ironveil — 60+ personagens e mitologia própria.',personalidade:'Expansivo, criativo, apaixonado por construção de mundos. Cada ideia vira um universo inteiro. Adora quando os jogadores surpreendem o enredo que criou.',historia:'Começou no RPG de mesa aos 16 como jogador. Percebeu que preferia criar o mundo a habitá-lo. Aos 22 criou Ironveil do zero.',relacoes:'Grupo Ironveil (jogadores, segunda família), Lyra Kessler (NPC favorito — espiã que os jogadores amam).',detalhes:'Tem caderno só para genealogias de Ironveil. Já cancelou sessão para desenvolver backstory de personagem secundário. Sabe signo e aniversário de cada um dos 60+ personagens.',frase:'Um bom universo não se escreve — se constrói. Tijolo por tijolo, personagem por personagem.',tags:['demo','rpg','criador'],atributos:{Criatividade:6,Liderança:5,Carisma:6,Perfeccionismo:6,Organização:4},ideias:[{texto:'Cairo poderia revelar que Lyra é a filha perdida do rei.',data:'Ideia'},{texto:'Ironveil tem material suficiente para um livro publicado.',data:'Ideia'}],timeline:[{quando:'Aos 16 anos',texto:'Primeiro contato com RPG. Percebeu que preferia criar o mundo.',tipo:'marco'},{quando:'Aos 22 anos',texto:'Criou Ironveil. Primeira sessão durou 8 horas.',tipo:'conquista'},{quando:'Hoje',texto:'60+ personagens, mitologia completa, sonho de publicar.',tipo:'marco'}],episodios:[{num:'Camp. 1',texto:'A Queda de Ironveil — campanha fundadora'},{num:'Camp. 2',texto:'O Segredo de Lyra Kessler — a sessão mais épica'}],arco:'Cairo começa caótico e se torna um criador metódico que entende que universos ricos precisam de organização.',isDemo:true}
 ];
 
 var chars=[],ativo=null,modoEd=false,userAtual=null,saveTimer=null;
-
-// localStorage removido — dados salvos no Supabase
 
 sb.auth.onAuthStateChange(function(event,session){
   if(session&&session.user){
@@ -518,13 +429,14 @@ async function carregarPersonagens(){
   document.getElementById('charList').innerHTML='<li style="padding:20px;text-align:center;color:var(--muted2);font-style:italic;font-size:14px;font-family:Cormorant Garamond,serif">Carregando…</li>';
   var res=await sb.from('personagens').select('*').order('nome');
   if(res.error){console.error(res.error);chars=DEMOS.slice();renderLista(chars);document.getElementById('cnt').textContent=chars.length;return;}
-  var dbChars=(res.data||[]).map(function(p){
-    // Garantir que signo seja extraído da idade se não existir
+  var db=(res.data||[]).map(function(p){
     if(!p.signo&&p.idade){var sm=p.idade.match(/\|\s*(.+?)\s*(?:\(|$)/);if(sm)p.signo=sm[1].trim();}
+    if(!p.tags)p.tags=[];if(!p.ideias)p.ideias=[];if(!p.timeline)p.timeline=[];
+    if(!p.episodios)p.episodios=[];if(!p.arco)p.arco='';if(!p.foto)p.foto='';
+    if(!p.status)p.status='ativo';
     return p;
-  });
-  // Demos primeiro, depois alfabético
-  chars=DEMOS.concat(dbChars.sort(function(a,b){return a.nome.localeCompare(b.nome,'pt-BR');}));
+  }).sort(function(a,b){return a.nome.localeCompare(b.nome,'pt-BR');});
+  chars=DEMOS.concat(db);
   renderLista(chars);document.getElementById('cnt').textContent=chars.length;
 }
 
@@ -532,59 +444,27 @@ function showSaving(){var s=document.getElementById('savingEl');s.classList.add(
 
 async function salvarDB(p){
   if(p.isDemo)return;showSaving();
-  // Dados básicos que sempre existem
-  var d={
-    user_id:userAtual.id,
-    nome:p.nome,signo:p.signo||'',idade:p.idade||'',
-    temperamento:p.temperamento||'',apelidos:p.apelidos||'',
-    aparencia:p.aparencia||'',profissao:p.profissao||'',
-    personalidade:p.personalidade||'',historia:p.historia||'',
-    relacoes:p.relacoes||'',detalhes:p.detalhes||'',frase:p.frase||'',
-    atributos:p.atributos||{},ideias:p.ideias||[]
-  };
-  // Colunas extras — adicionadas depois
-  try{d.tags=p.tags||[];}catch(e){}
-  try{d.status=p.status||'ativo';}catch(e){}
-  try{d.timeline=p.timeline||[];}catch(e){}
-  try{d.episodios=p.episodios||[];}catch(e){}
-  try{d.arco=p.arco||'';}catch(e){}
-  try{if(p.foto&&p.foto.length<500000)d.foto=p.foto;}catch(e){}
-
-  if(p.id&&!String(p.id).startsWith('tmp_')){
+  var d={user_id:userAtual.id,nome:p.nome,signo:p.signo||'',idade:p.idade||'',temperamento:p.temperamento||'',apelidos:p.apelidos||'',aparenca:p.aparenca||'',profissao:p.profissao||'',personalidade:p.personalidade||'',historia:p.historia||'',relacoes:p.relacoes||'',detalhes:p.detalhes||'',frase:p.frase||'',atributos:p.atributos||{},ideias:p.ideias||[],tags:p.tags||[],status:p.status||'ativo',timeline:p.timeline||[],episodios:p.episodios||[],arco:p.arco||''};
+  if(p.foto&&p.foto.length<400000)d.foto=p.foto;
+  var isNew=!p.id||String(p.id).startsWith('tmp_');
+  if(!isNew){
     var res=await sb.from('personagens').update(d).eq('id',p.id);
-    if(res.error){
-      console.error('update error',res.error);
-      // Tenta salvar só os dados básicos
-      var db={user_id:userAtual.id,nome:p.nome,signo:p.signo||'',idade:p.idade||'',temperamento:p.temperamento||'',apelidos:p.apelidos||'',aparencia:p.aparencia||'',profissao:p.profissao||'',personalidade:p.personalidade||'',historia:p.historia||'',relacoes:p.relacoes||'',detalhes:p.detalhes||'',frase:p.frase||'',atributos:p.atributos||{},ideias:p.ideias||[]};
-      await sb.from('personagens').update(db).eq('id',p.id);
-    }
+    if(res.error)console.error('update',res.error);
   }else{
     var r=await sb.from('personagens').insert(d).select().single();
-    if(r.error){
-      console.error('insert error',r.error);
-      // Tenta inserir só dados básicos
-      var db={user_id:userAtual.id,nome:p.nome,signo:p.signo||'',idade:p.idade||'',temperamento:p.temperamento||'',apelidos:p.apelidos||'',aparencia:p.aparencia||'',profissao:p.profissao||'',personalidade:p.personalidade||'',historia:p.historia||'',relacoes:p.relacoes||'',detalhes:p.detalhes||'',frase:p.frase||'',atributos:p.atributos||{},ideias:p.ideias||[]};
-      r=await sb.from('personagens').insert(db).select().single();
-      if(r.error){console.error('insert básico falhou',r.error);return;}
-    }
-    if(r.data){
-      var oldId=p.id;
-      p.id=r.data.id;
-      var idx=chars.findIndex(function(x){return x.id===oldId;});
-      if(idx!==-1)chars[idx].id=r.data.id;
-      if(ativo===oldId)ativo=r.data.id;
-    }
+    if(r.error){console.error('insert',r.error);return;}
+    if(r.data){var old=p.id;p.id=r.data.id;var idx=chars.findIndex(function(x){return x.id===old;});if(idx!==-1)chars[idx].id=r.data.id;if(ativo===old)ativo=r.data.id;}
   }
 }
 
-async function excluirDB(id){if(!String(id).startsWith('demo_'))await sb.from('personagens').delete().eq('id',id);}
+async function excluirDB(id){if(!String(id).startsWith('demo_')&&!String(id).startsWith('tmp_'))await sb.from('personagens').delete().eq('id',id);}
 
-// AUTH
 function authAba(aba){
   document.querySelectorAll('.auth-tab').forEach(function(t,i){t.classList.toggle('active',(i===0&&aba==='login')||(i===1&&aba==='cadastro'));});
   document.getElementById('authLogin').classList.toggle('active',aba==='login');
   document.getElementById('authCad').classList.toggle('active',aba==='cadastro');
 }
+
 async function fazerLogin(){
   var email=document.getElementById('loginEmail').value.trim();
   var senha=document.getElementById('loginSenha').value;
@@ -595,6 +475,7 @@ async function fazerLogin(){
   if(r.error){msg.className='auth-msg err';msg.textContent=r.error.message==='Invalid login credentials'?'E-mail ou senha incorretos.':r.error.message;}
   btn.disabled=false;btn.textContent='Entrar';
 }
+
 async function fazerCadastro(){
   var codigo=document.getElementById('cadCodigo').value.trim().toUpperCase();
   var email=document.getElementById('cadEmail').value.trim();
@@ -605,12 +486,13 @@ async function fazerCadastro(){
   if(codigo!==CODIGO){msg.className='auth-msg err';msg.textContent='Código de acesso inválido.';return;}
   if(senha.length<6){msg.className='auth-msg err';msg.textContent='Senha deve ter pelo menos 6 caracteres.';return;}
   if(senha!==senha2){msg.className='auth-msg err';msg.textContent='As senhas não coincidem.';return;}
-  btn.disabled=true;btn.textContent='Criando conta…';
+  btn.disabled=true;btn.textContent='Criando…';
   var r=await sb.auth.signUp({email:email,password:senha});
   if(r.error){msg.className='auth-msg err';msg.textContent=r.error.message;}
   else{msg.className='auth-msg ok';msg.textContent='Conta criada! Verifique seu e-mail e faça login.';}
   btn.disabled=false;btn.textContent='Criar conta';
 }
+
 async function fazerLogout(){await sb.auth.signOut();}
 
 async function recuperarSenha(){
@@ -619,7 +501,7 @@ async function recuperarSenha(){
   if(!email){msg.className='auth-msg err';msg.textContent='Digite seu e-mail acima primeiro.';return;}
   var r=await sb.auth.resetPasswordForEmail(email);
   if(r.error){msg.className='auth-msg err';msg.textContent=r.error.message;}
-  else{msg.className='auth-msg ok';msg.textContent='E-mail de recuperação enviado! Verifique sua caixa de entrada.';}
+  else{msg.className='auth-msg ok';msg.textContent='E-mail de recuperação enviado!';}
 }
 
 async function reenviarEmail(){
@@ -628,70 +510,50 @@ async function reenviarEmail(){
   if(!email){msg.className='auth-msg err';msg.textContent='Digite seu e-mail acima primeiro.';return;}
   var r=await sb.auth.resend({type:'signup',email:email});
   if(r.error){msg.className='auth-msg err';msg.textContent=r.error.message;}
-  else{msg.className='auth-msg ok';msg.textContent='E-mail de confirmação reenviado! Verifique sua caixa de entrada.';}
+  else{msg.className='auth-msg ok';msg.textContent='E-mail de confirmação reenviado!';}
 }
 
-// LISTA
 function renderLista(l){
   var ul=document.getElementById('charList');ul.innerHTML='';
-  if(!l.length){ul.innerHTML='<li style="padding:20px;text-align:center;color:var(--muted2);font-style:italic;font-size:14px;font-family:Cormorant Garamond,serif">Nenhum personagem ainda. Crie o primeiro!</li>';return;}
+  if(!l.length){ul.innerHTML='<li style="padding:20px;text-align:center;color:var(--muted2);font-style:italic;font-size:14px;font-family:Cormorant Garamond,serif">Nenhum personagem ainda.</li>';return;}
   l.forEach(function(p){
     var li=document.createElement('li');li.className='ci'+(ativo===p.id?' active':'');li.dataset.id=p.id;
     var demo=p.isDemo?'<span class="demo-tag">✦ demo</span>':'';
-    var statusIcon=p.status==='arquivado'?'📦 ':p.status==='futuro'?'💭 ':'';
-    li.innerHTML='<span class="ci-name">'+statusIcon+p.nome+demo+'</span><span class="ci-sign">'+(p.signo||'')+'</span>';
+    var si=p.status==='arquivado'?'📦 ':p.status==='futuro'?'💭 ':'';
+    li.innerHTML='<span class="ci-name">'+si+p.nome+demo+'</span><span class="ci-sign">'+(p.signo||'')+'</span>';
     li.onclick=function(){abrir(p.id);};ul.appendChild(li);
   });
 }
 
 function filtrar(q){
   var t=q.toLowerCase().trim();
-  var f=chars.filter(function(p){
-    return p.nome.toLowerCase().indexOf(t)!==-1||(p.tags&&p.tags.some(function(tag){return tag.toLowerCase().indexOf(t)!==-1;}));
-  });
+  var f=chars.filter(function(p){return p.nome.toLowerCase().indexOf(t)!==-1||(p.tags&&p.tags.some(function(g){return g.toLowerCase().indexOf(t)!==-1;}));});
   renderLista(f);document.getElementById('cnt').textContent=f.length;
 }
 
-// ABRIR FICHA
 function abrir(id){
   var p=chars.filter(function(x){return x.id===id;})[0];if(!p)return;ativo=id;
   document.querySelectorAll('.ci').forEach(function(el){el.classList.toggle('active',el.dataset.id===id);});
   document.getElementById('fichaCard').classList.add('visible');
   document.getElementById('fichaName').textContent=p.nome;
-
-  // foto
-  var img=document.getElementById('charPhotoImg');
   var ph=document.getElementById('charPhoto');
-  if(p.foto){img.src=p.foto;img.style.display='block';ph.textContent='';}
-  else{img.style.display='none';ph.innerHTML='📷<img id="charPhotoImg" style="display:none">';}
-
-  // tags
+  if(p.foto){ph.innerHTML='<img src="'+p.foto+'" style="width:100%;height:100%;object-fit:cover"><input type="file" id="photoInput" class="char-photo-input" accept="image/*" onchange="uploadPhoto(this)">';}
+  else{ph.innerHTML='📷<input type="file" id="photoInput" class="char-photo-input" accept="image/*" onchange="uploadPhoto(this)">';}
   var tags=[];
   if(p.idade)tags.push('<span class="ftag">'+p.idade+'</span>');
   if(p.temperamento)tags.push('<span class="ftag">'+p.temperamento+'</span>');
   if(p.apelidos)tags.push('<span class="ftag ap">'+p.apelidos+'</span>');
   if(p.status&&p.status!=='ativo')tags.push('<span class="ftag status">'+(p.status==='arquivado'?'📦 Arquivado':'💭 Ideia futura')+'</span>');
-  if(p.tags&&p.tags.length)p.tags.forEach(function(t){if(t!=='demo')tags.push('<span class="ftag ap">#'+t+'</span>');});
+  if(p.tags)p.tags.filter(function(t){return t!=='demo';}).forEach(function(t){tags.push('<span class="ftag ap">#'+t+'</span>');});
   document.getElementById('fichaTags').innerHTML=tags.join('');
-
   renderFichaTabs(p);
   document.getElementById('fichaCard').scrollIntoView({behavior:'smooth',block:'start'});
 }
 
 function renderFichaTabs(p){
-  var tabDefs=[
-    {id:'ficha',label:'Ficha'},
-    {id:'atributos',label:'🎲 Atributos'},
-    {id:'ideias',label:'Ideias'+(p.ideias&&p.ideias.length?'<span class="badge">'+p.ideias.length+'</span>':'')},
-    {id:'timeline',label:'📅 Linha do Tempo'},
-    {id:'episodios',label:'📺 Episódios'},
-    {id:'arco',label:'📖 Arco'},
-    {id:'tags',label:'🏷 Tags'},
-  ];
-  var bar=document.getElementById('fichaTabsBar');
-  var content=document.getElementById('fichaTabsContent');
-  bar.innerHTML=tabDefs.map(function(t,i){return '<button class="tab'+(i===0?' active':'')+'" onclick="mudarAba(\''+t.id+'\')" id="tab_'+t.id+'">'+t.label+'</button>';}).join('');
-  content.innerHTML=tabDefs.map(function(t,i){return '<div class="tp'+(i===0?' active':'')+'" id="panel_'+t.id+'"></div>';}).join('');
+  var tdefs=[{id:'ficha',label:'Ficha'},{id:'atributos',label:'🎲 Atributos'},{id:'ideias',label:'Ideias'+(p.ideias&&p.ideias.length?'<span class="badge">'+p.ideias.length+'</span>':'')},{id:'timeline',label:'📅 Linha do Tempo'},{id:'episodios',label:'📺 Episódios'},{id:'arco',label:'📖 Arco'},{id:'tags',label:'🏷 Tags'}];
+  document.getElementById('fichaTabsBar').innerHTML=tdefs.map(function(t,i){return '<button class="tab'+(i===0?' active':'')+'" onclick="mudarAba(\''+t.id+'\')" id="tab_'+t.id+'">'+t.label+'</button>';}).join('');
+  document.getElementById('fichaTabsContent').innerHTML=tdefs.map(function(t,i){return '<div class="tp'+(i===0?' active':'')+'" id="panel_'+t.id+'"></div>';}).join('');
   renderTabFicha(p);renderTabAtributos(p);renderTabIdeias(p);renderTabTimeline(p);renderTabEpisodios(p);renderTabArco(p);renderTabTags(p);
 }
 
@@ -700,15 +562,13 @@ function mudarAba(aba){
   document.querySelectorAll('.tp').forEach(function(p){p.classList.toggle('active',p.id==='panel_'+aba);});
 }
 
-// TAB FICHA
 function renderTabFicha(p){
-  var campos=[['Aparência',p.aparencia],['Profissão',p.profissao],['Personalidade',p.personalidade],['História',p.historia],['Relações-chave',p.relacoes],['Detalhes & Curiosidades',p.detalhes]];
+  var campos=[['Aparência',p.aparenca||p.aparencia],['Profissão',p.profissao],['Personalidade',p.personalidade],['História',p.historia],['Relações-chave',p.relacoes],['Detalhes & Curiosidades',p.detalhes]];
   var html='<div class="flds">'+campos.filter(function(c){return c[1];}).map(function(c){return '<div><div class="fl">'+c[0]+'</div><div class="fv">'+c[1]+'</div></div>';}).join('')+'</div>';
   if(p.frase)html+='<div class="fq">✦ "'+p.frase+'"</div>';
   document.getElementById('panel_ficha').innerHTML=html;
 }
 
-// TAB ATRIBUTOS
 function renderTabAtributos(p){
   var attrs=p.atributos||{};var html='<div class="attr-acts"><button class="btn-roll" onclick="sortearTudo()">🎲 Sortear todos</button><button class="btn-zero" onclick="zerarTudo()">↺ Zerar</button></div>';
   GRUPOS.forEach(function(g){
@@ -723,153 +583,54 @@ function renderTabAtributos(p){
   document.getElementById('panel_atributos').innerHTML=html;
 }
 
-async function setAttr(attr,val){
-  if(!ativo)return;var p=chars.filter(function(x){return x.id===ativo;})[0];if(!p||p.isDemo)return;
-  if(!p.atributos)p.atributos={};
-  p.atributos[attr]=(p.atributos[attr]===val)?0:val;
-  renderTabAtributos(p);await salvarDB(p);
-}
-async function sortearTudo(){
-  if(!ativo)return;var p=chars.filter(function(x){return x.id===ativo;})[0];if(!p||p.isDemo)return;
-  if(!p.atributos)p.atributos=attrDef();
-  GRUPOS.forEach(function(g){g.attrs.forEach(function(a){p.atributos[a]=Math.floor(Math.random()*6)+1;});});
-  renderTabAtributos(p);await salvarDB(p);
-}
-async function sortearGrupo(nome){
-  if(!ativo)return;var p=chars.filter(function(x){return x.id===ativo;})[0];if(!p||p.isDemo)return;
-  if(!p.atributos)p.atributos={};
-  var g=GRUPOS.filter(function(x){return x.nome===nome;})[0];if(!g)return;
-  g.attrs.forEach(function(a){p.atributos[a]=Math.floor(Math.random()*6)+1;});
-  renderTabAtributos(p);await salvarDB(p);
-}
-async function zerarTudo(){
-  if(!ativo)return;var p=chars.filter(function(x){return x.id===ativo;})[0];if(!p||p.isDemo)return;
-  p.atributos=attrDef();renderTabAtributos(p);await salvarDB(p);
-}
+async function setAttr(a,v){if(!ativo)return;var p=chars.filter(function(x){return x.id===ativo;})[0];if(!p||p.isDemo)return;if(!p.atributos)p.atributos={};p.atributos[a]=(p.atributos[a]===v)?0:v;renderTabAtributos(p);await salvarDB(p);}
+async function sortearTudo(){if(!ativo)return;var p=chars.filter(function(x){return x.id===ativo;})[0];if(!p||p.isDemo)return;if(!p.atributos)p.atributos={};GRUPOS.forEach(function(g){g.attrs.forEach(function(a){p.atributos[a]=Math.floor(Math.random()*6)+1;});});renderTabAtributos(p);await salvarDB(p);}
+async function sortearGrupo(nome){if(!ativo)return;var p=chars.filter(function(x){return x.id===ativo;})[0];if(!p||p.isDemo)return;if(!p.atributos)p.atributos={};var g=GRUPOS.filter(function(x){return x.nome===nome;})[0];if(!g)return;g.attrs.forEach(function(a){p.atributos[a]=Math.floor(Math.random()*6)+1;});renderTabAtributos(p);await salvarDB(p);}
+async function zerarTudo(){if(!ativo)return;var p=chars.filter(function(x){return x.id===ativo;})[0];if(!p||p.isDemo)return;p.atributos={};renderTabAtributos(p);await salvarDB(p);}
 
-// TAB IDEIAS
 function renderTabIdeias(p){
   var l=p.ideias||[];
-  var html='<div class="ii-wrap"><textarea class="ii-input" id="ii_inp" placeholder="Adicionar ideia ou nota…" rows="2"></textarea><button class="btn-ii" onclick="addIdeia()">＋</button></div>';
-  html+='<ul class="ilist">';
+  var html='<div class="ii-wrap"><textarea class="ii-input" id="ii_inp" placeholder="Adicionar ideia ou nota…" rows="2"></textarea><button class="btn-ii" onclick="addIdeia()">＋</button></div><ul class="ilist">';
   l.forEach(function(x,i){html+='<li class="iitem"><div class="idot">✦</div><div class="itext">'+x.texto+'</div><div class="idate">'+x.data+'</div><button class="btn-di" onclick="delIdeia('+i+')">✕</button></li>';});
-  html+='</ul>';
-  if(!l.length)html+='<div class="empty">Nenhuma ideia ainda.</div>';
+  html+='</ul>'+(l.length?'':'<div class="empty">Nenhuma ideia ainda.</div>');
   document.getElementById('panel_ideias').innerHTML=html;
 }
-async function addIdeia(){
-  if(!ativo)return;var p=chars.filter(function(x){return x.id===ativo;})[0];if(!p)return;
-  var inp=document.getElementById('ii_inp');var t=inp.value.trim();if(!t)return;
-  if(!p.ideias)p.ideias=[];
-  var d=new Date().toLocaleDateString('pt-BR',{day:'2-digit',month:'2-digit',year:'numeric'});
-  p.ideias.push({texto:t,data:d});inp.value='';renderTabIdeias(p);
-  var bar=document.getElementById('fichaTabsBar');
-  var tabI=bar.querySelector('#tab_ideias');
-  if(tabI)tabI.innerHTML='Ideias<span class="badge">'+p.ideias.length+'</span>';
-  if(!p.isDemo)await salvarDB(p);
-}
-async function delIdeia(i){
-  if(!ativo)return;var p=chars.filter(function(x){return x.id===ativo;})[0];if(!p)return;
-  p.ideias.splice(i,1);renderTabIdeias(p);
-  if(!p.isDemo)await salvarDB(p);
-}
+async function addIdeia(){if(!ativo)return;var p=chars.filter(function(x){return x.id===ativo;})[0];if(!p)return;var inp=document.getElementById('ii_inp');var t=inp.value.trim();if(!t)return;if(!p.ideias)p.ideias=[];var d=new Date().toLocaleDateString('pt-BR',{day:'2-digit',month:'2-digit',year:'numeric'});p.ideias.push({texto:t,data:d});inp.value='';renderTabIdeias(p);var tb=document.getElementById('tab_ideias');if(tb)tb.innerHTML='Ideias<span class="badge">'+p.ideias.length+'</span>';if(!p.isDemo)await salvarDB(p);}
+async function delIdeia(i){if(!ativo)return;var p=chars.filter(function(x){return x.id===ativo;})[0];if(!p)return;p.ideias.splice(i,1);renderTabIdeias(p);if(!p.isDemo)await salvarDB(p);}
 
-// TAB TIMELINE
 function renderTabTimeline(p){
   var l=p.timeline||[];
-  var tipos=['marco','romance','trauma','conquista'];
-  var html='<div class="tl-add">';
-  html+='<input class="tl-input" id="tl_quando" placeholder="Quando? (ex: Aos 16 anos)" style="flex:1;min-width:100px">';
-  html+='<select class="tl-input" id="tl_tipo" style="flex:0 0 120px">';
-  tipos.forEach(function(t){html+='<option value="'+t+'">'+t.charAt(0).toUpperCase()+t.slice(1)+'</option>';});
-  html+='</select></div>';
-  html+='<div style="margin-bottom:8px"><input class="tl-input" id="tl_texto" placeholder="O que aconteceu?" style="width:100%"></div>';
-  html+='<button class="bsave" onclick="addTimeline()" style="margin-bottom:20px">＋ Adicionar evento</button>';
-  if(l.length){
-    html+='<ul class="tl-list">';
-    l.forEach(function(x,i){
-      html+='<li class="tl-item"><div class="tl-when">'+x.quando+'</div><div class="tl-text">'+x.texto+'</div><span class="tl-type '+x.tipo+'">'+x.tipo+'</span><button class="btn-tl-del" onclick="delTimeline('+i+')">✕</button></li>';
-    });
-    html+='</ul>';
-  }else{html+='<div class="empty">Nenhum evento ainda.</div>';}
+  var html='<div class="tl-add"><input class="tl-input" id="tl_q" placeholder="Quando?" style="flex:1;min-width:100px"><select class="tl-input" id="tl_t" style="flex:0 0 120px"><option value="marco">Marco</option><option value="conquista">Conquista</option><option value="romance">Romance</option><option value="trauma">Trauma</option></select></div><div style="margin-bottom:12px"><input class="tl-input" id="tl_x" placeholder="O que aconteceu?" style="width:100%"></div><button class="bsave" onclick="addTimeline()" style="margin-bottom:20px">＋ Adicionar evento</button>';
+  if(l.length){html+='<ul class="tl-list">';l.forEach(function(x,i){html+='<li class="tl-item"><div class="tl-when">'+x.quando+'</div><div class="tl-text">'+x.texto+'</div><span class="tl-type '+x.tipo+'">'+x.tipo+'</span><button class="btn-tl-del" onclick="delTimeline('+i+')">✕</button></li>';});html+='</ul>';}else{html+='<div class="empty">Nenhum evento ainda.</div>';}
   document.getElementById('panel_timeline').innerHTML=html;
 }
-async function addTimeline(){
-  if(!ativo)return;var p=chars.filter(function(x){return x.id===ativo;})[0];if(!p)return;
-  var quando=document.getElementById('tl_quando').value.trim();
-  var texto=document.getElementById('tl_texto').value.trim();
-  var tipo=document.getElementById('tl_tipo').value;
-  if(!quando||!texto)return;
-  if(!p.timeline)p.timeline=[];
-  p.timeline.push({quando:quando,texto:texto,tipo:tipo});
-  renderTabTimeline(p);if(!p.isDemo)await salvarDB(p);
-}
-async function delTimeline(i){
-  if(!ativo)return;var p=chars.filter(function(x){return x.id===ativo;})[0];if(!p)return;
-  p.timeline.splice(i,1);renderTabTimeline(p);if(!p.isDemo)await salvarDB(p);
-}
+async function addTimeline(){if(!ativo)return;var p=chars.filter(function(x){return x.id===ativo;})[0];if(!p)return;var q=document.getElementById('tl_q').value.trim();var x=document.getElementById('tl_x').value.trim();var t=document.getElementById('tl_t').value;if(!q||!x)return;if(!p.timeline)p.timeline=[];p.timeline.push({quando:q,texto:x,tipo:t});renderTabTimeline(p);if(!p.isDemo)await salvarDB(p);}
+async function delTimeline(i){if(!ativo)return;var p=chars.filter(function(x){return x.id===ativo;})[0];if(!p)return;p.timeline.splice(i,1);renderTabTimeline(p);if(!p.isDemo)await salvarDB(p);}
 
-// TAB EPISÓDIOS
 function renderTabEpisodios(p){
   var l=p.episodios||[];
-  var html='<div class="ep-add"><input class="tl-input" id="ep_num" placeholder="Ep/Cap/Vol" style="flex:0 0 90px"><input class="tl-input" id="ep_txt" placeholder="Descreva a participação…" style="flex:1"><button class="bsave" onclick="addEpisodio()">＋</button></div>';
-  html+='<ul class="ep-list">';
+  var html='<div class="ep-add"><input class="tl-input" id="ep_n" placeholder="Ep/Cap" style="flex:0 0 80px"><input class="tl-input" id="ep_t" placeholder="Descreva a participação…" style="flex:1"><button class="bsave" onclick="addEpisodio()">＋</button></div><ul class="ep-list">';
   l.forEach(function(x,i){html+='<li class="ep-item"><div class="ep-num">'+x.num+'</div><div class="ep-text">'+x.texto+'</div><button class="btn-di" onclick="delEpisodio('+i+')">✕</button></li>';});
-  html+='</ul>';
-  if(!l.length)html+='<div class="empty">Nenhum episódio ainda.</div>';
+  html+='</ul>'+(l.length?'':'<div class="empty">Nenhum episódio ainda.</div>');
   document.getElementById('panel_episodios').innerHTML=html;
 }
-async function addEpisodio(){
-  if(!ativo)return;var p=chars.filter(function(x){return x.id===ativo;})[0];if(!p)return;
-  var num=document.getElementById('ep_num').value.trim();
-  var txt=document.getElementById('ep_txt').value.trim();
-  if(!num||!txt)return;
-  if(!p.episodios)p.episodios=[];
-  p.episodios.push({num:num,texto:txt});
-  renderTabEpisodios(p);if(!p.isDemo)await salvarDB(p);
-}
-async function delEpisodio(i){
-  if(!ativo)return;var p=chars.filter(function(x){return x.id===ativo;})[0];if(!p)return;
-  p.episodios.splice(i,1);renderTabEpisodios(p);if(!p.isDemo)await salvarDB(p);
-}
+async function addEpisodio(){if(!ativo)return;var p=chars.filter(function(x){return x.id===ativo;})[0];if(!p)return;var n=document.getElementById('ep_n').value.trim();var t=document.getElementById('ep_t').value.trim();if(!n||!t)return;if(!p.episodios)p.episodios=[];p.episodios.push({num:n,texto:t});renderTabEpisodios(p);if(!p.isDemo)await salvarDB(p);}
+async function delEpisodio(i){if(!ativo)return;var p=chars.filter(function(x){return x.id===ativo;})[0];if(!p)return;p.episodios.splice(i,1);renderTabEpisodios(p);if(!p.isDemo)await salvarDB(p);}
 
-// TAB ARCO
 function renderTabArco(p){
-  var html='<p style="font-family:DM Sans,sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--wine);margin-bottom:8px;font-weight:500">ARCO NARRATIVO</p>';
-  html+='<p style="font-size:13px;color:var(--muted2);font-family:Cormorant Garamond,serif;font-style:italic;margin-bottom:12px">Onde o personagem começa, como se transforma e onde termina na sua história.</p>';
-  html+='<textarea class="arco-field" id="arco_txt" placeholder="Descreva a transformação do personagem ao longo da história…">'+((p.arco||''))+'</textarea>';
-  html+='<button class="btn-save-arco" onclick="salvarArco()">Salvar arco</button>';
-  document.getElementById('panel_arco').innerHTML=html;
+  document.getElementById('panel_arco').innerHTML='<p style="font-family:DM Sans,sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--wine);margin-bottom:8px;font-weight:500">ARCO NARRATIVO</p><p style="font-size:13px;color:var(--muted2);font-family:Cormorant Garamond,serif;font-style:italic;margin-bottom:12px">Onde começa, como se transforma e onde termina na história.</p><textarea class="arco-field" id="arco_txt" placeholder="Descreva a transformação do personagem…">'+((p.arco||''))+'</textarea><button class="btn-save-arco" onclick="salvarArco()">Salvar arco</button>';
 }
-async function salvarArco(){
-  if(!ativo)return;var p=chars.filter(function(x){return x.id===ativo;})[0];if(!p||p.isDemo)return;
-  p.arco=document.getElementById('arco_txt').value;await salvarDB(p);showSaving();
-}
+async function salvarArco(){if(!ativo)return;var p=chars.filter(function(x){return x.id===ativo;})[0];if(!p||p.isDemo)return;p.arco=document.getElementById('arco_txt').value;await salvarDB(p);}
 
-// TAB TAGS
 function renderTabTags(p){
-  var tags=p.tags||[];
-  var html='<div class="tags-wrap">'+tags.filter(function(t){return t!=='demo';}).map(function(t,i){return '<span class="tag-item">#'+t+'<button class="tag-del" onclick="delTag('+i+')">✕</button></span>';}).join('')+'</div>';
-  html+='<div class="tag-add"><input class="tag-input" id="tag_inp" placeholder="Nova tag (ex: família, protagonista…)"><button class="bsave" onclick="addTag()">＋ Adicionar</button></div>';
+  var tags=(p.tags||[]).filter(function(t){return t!=='demo';});
+  var html='<div class="tags-wrap">'+tags.map(function(t,i){return '<span class="tag-item">#'+t+'<button class="tag-del" onclick="delTag('+i+')">✕</button></span>';}).join('')+'</div><div class="tag-add"><input class="tag-input" id="tag_i" placeholder="Nova tag…"><button class="bsave" onclick="addTag()">＋ Adicionar</button></div>';
   document.getElementById('panel_tags').innerHTML=html;
 }
-async function addTag(){
-  if(!ativo)return;var p=chars.filter(function(x){return x.id===ativo;})[0];if(!p)return;
-  var t=document.getElementById('tag_inp').value.trim().toLowerCase().replace(/\s+/g,'-');
-  if(!t)return;if(!p.tags)p.tags=[];
-  if(p.tags.indexOf(t)===-1)p.tags.push(t);
-  renderTabTags(p);if(!p.isDemo)await salvarDB(p);
-}
-async function delTag(i){
-  if(!ativo)return;var p=chars.filter(function(x){return x.id===ativo;})[0];if(!p)return;
-  var realTags=p.tags.filter(function(t){return t!=='demo';});
-  realTags.splice(i,1);
-  p.tags=p.isDemo?['demo'].concat(realTags):realTags;
-  renderTabTags(p);if(!p.isDemo)await salvarDB(p);
-}
+async function addTag(){if(!ativo)return;var p=chars.filter(function(x){return x.id===ativo;})[0];if(!p)return;var t=document.getElementById('tag_i').value.trim().toLowerCase().replace(/\s+/g,'-');if(!t)return;if(!p.tags)p.tags=[];if(p.tags.indexOf(t)===-1)p.tags.push(t);renderTabTags(p);if(!p.isDemo)await salvarDB(p);}
+async function delTag(i){if(!ativo)return;var p=chars.filter(function(x){return x.id===ativo;})[0];if(!p)return;var rt=p.tags.filter(function(t){return t!=='demo';});rt.splice(i,1);p.tags=p.isDemo?['demo'].concat(rt):rt;renderTabTags(p);if(!p.isDemo)await salvarDB(p);}
 
-// FOTO
-function triggerPhoto(){if(!ativo)return;var p=chars.filter(function(x){return x.id===ativo;})[0];if(!p||p.isDemo)return;document.getElementById('photoInput').click();}
+function triggerPhoto(){if(!ativo)return;var p=chars.filter(function(x){return x.id===ativo;})[0];if(!p||p.isDemo)return;var inp=document.getElementById('photoInput');if(inp)inp.click();}
 async function uploadPhoto(input){
   if(!ativo||!input.files[0])return;
   var p=chars.filter(function(x){return x.id===ativo;})[0];if(!p||p.isDemo)return;
@@ -877,86 +638,56 @@ async function uploadPhoto(input){
   reader.onload=function(e){
     var img=new Image();
     img.onload=async function(){
-      var canvas=document.createElement('canvas');
-      var max=200;var w=img.width;var h=img.height;
+      var canvas=document.createElement('canvas');var max=200;var w=img.width;var h=img.height;
       if(w>h){if(w>max){h=h*(max/w);w=max;}}else{if(h>max){w=w*(max/h);h=max;}}
-      canvas.width=w;canvas.height=h;
-      canvas.getContext('2d').drawImage(img,0,0,w,h);
+      canvas.width=w;canvas.height=h;canvas.getContext('2d').drawImage(img,0,0,w,h);
       p.foto=canvas.toDataURL('image/jpeg',0.8);
       var ph=document.getElementById('charPhoto');
-      ph.innerHTML='<img id="charPhotoImg" src="'+p.foto+'" style="width:100%;height:100%;object-fit:cover">';
+      ph.innerHTML='<img src="'+p.foto+'" style="width:100%;height:100%;object-fit:cover"><input type="file" id="photoInput" class="char-photo-input" accept="image/*" onchange="uploadPhoto(this)">';
       await salvarDB(p);
-    };
-    img.src=e.target.result;
-  };
-  reader.readAsDataURL(input.files[0]);
+    };img.src=e.target.result;
+  };reader.readAsDataURL(input.files[0]);
 }
 
-// EXCLUIR
 function abrirConfirm(){
   if(!ativo)return;var p=chars.filter(function(x){return x.id===ativo;})[0];
-  var msg=p.isDemo?'Deseja remover o personagem demo "'+p.nome+'"? Você pode explorá-lo antes de excluir!':'Tem certeza que deseja excluir a ficha de '+p.nome+'? Esta ação não pode ser desfeita.';
-  document.getElementById('confMsg').textContent=msg;
+  document.getElementById('confMsg').textContent=p.isDemo?'Deseja remover o personagem demo "'+p.nome+'"?':'Tem certeza que deseja excluir a ficha de '+p.nome+'? Esta ação não pode ser desfeita.';
   document.getElementById('confOverlay').classList.add('open');
 }
 function fecharConf(){document.getElementById('confOverlay').classList.remove('open');}
 async function confirmarExclusao(){
-  var id=ativo;
-  await excluirDB(id);
-  chars=chars.filter(function(x){return x.id!==id;});
-  ativo=null;fecharConf();
-  document.getElementById('fichaCard').classList.remove('visible');
-  renderLista(chars);document.getElementById('cnt').textContent=chars.length;
+  var id=ativo;await excluirDB(id);chars=chars.filter(function(x){return x.id!==id;});ativo=null;fecharConf();
+  document.getElementById('fichaCard').classList.remove('visible');renderLista(chars);document.getElementById('cnt').textContent=chars.length;
 }
 
-// NOVO/EDITAR
-function abrirNovo(){
-  modoEd=false;document.getElementById('editTitle').textContent='Novo Personagem';document.getElementById('btnSalvar').textContent='Salvar';
-  ['fNome','fIdade','fTemp','fApel','fApar','fProf','fPers','fHist','fRel','fDet','fFrase'].forEach(function(id){document.getElementById(id).value='';});
-  document.getElementById('fStatus').value='ativo';
-  document.getElementById('overlayEdit').classList.add('open');
-}
+function abrirNovo(){modoEd=false;document.getElementById('editTitle').textContent='Novo Personagem';document.getElementById('btnSalvar').textContent='Salvar';['fNome','fIdade','fTemp','fApel','fApar','fProf','fPers','fHist','fRel','fDet','fFrase'].forEach(function(id){document.getElementById(id).value='';});document.getElementById('fStatus').value='ativo';document.getElementById('overlayEdit').classList.add('open');}
 function editarFicha(){
   if(!ativo)return;var p=chars.filter(function(x){return x.id===ativo;})[0];if(!p)return;
   modoEd=true;document.getElementById('editTitle').textContent='Editar — '+p.nome;document.getElementById('btnSalvar').textContent='Salvar alterações';
-  document.getElementById('fNome').value=p.nome||'';document.getElementById('fIdade').value=p.idade||'';
-  document.getElementById('fTemp').value=p.temperamento||'';document.getElementById('fApel').value=p.apelidos||'';
-  document.getElementById('fApar').value=p.aparencia||'';document.getElementById('fProf').value=p.profissao||'';
-  document.getElementById('fPers').value=p.personalidade||'';document.getElementById('fHist').value=p.historia||'';
-  document.getElementById('fRel').value=p.relacoes||'';document.getElementById('fDet').value=p.detalhes||'';
-  document.getElementById('fFrase').value=p.frase||'';document.getElementById('fStatus').value=p.status||'ativo';
+  document.getElementById('fNome').value=p.nome||'';document.getElementById('fIdade').value=p.idade||'';document.getElementById('fTemp').value=p.temperamento||'';document.getElementById('fApel').value=p.apelidos||'';document.getElementById('fApar').value=p.aparenca||p.aparencia||'';document.getElementById('fProf').value=p.profissao||'';document.getElementById('fPers').value=p.personalidade||'';document.getElementById('fHist').value=p.historia||'';document.getElementById('fRel').value=p.relacoes||'';document.getElementById('fDet').value=p.detalhes||'';document.getElementById('fFrase').value=p.frase||'';document.getElementById('fStatus').value=p.status||'ativo';
   document.getElementById('overlayEdit').classList.add('open');
 }
 function fecharEdit(){document.getElementById('overlayEdit').classList.remove('open');}
 
 async function salvar(){
   var nome=document.getElementById('fNome').value.trim();if(!nome){alert('Nome é obrigatório!');return;}
-  var mi=document.getElementById('fIdade').value;
-  var sm=mi.match(/\|\s*(.+?)\s*(?:\(|$)/);var s=sm?sm[1].trim():'';
-  // Se não extraiu signo da idade, tenta pegar do campo signo separado
-  if(!s){var signoMatch=mi.match(/(?:^|\s)(Áries|Touro|Gêmeos|Câncer|Leão|Virgem|Libra|Escorpião|Sagitário|Capricórnio|Aquário|Peixes)/i);if(signoMatch)s=signoMatch[1];}
+  var mi=document.getElementById('fIdade').value;var sm=mi.match(/\|\s*(.+?)\s*(?:\(|$)/);var s=sm?sm[1].trim():'';
   var btn=document.getElementById('btnSalvar');btn.disabled=true;btn.textContent='Salvando…';
   if(modoEd&&ativo){
     var idx=chars.findIndex(function(x){return x.id===ativo;});if(idx===-1)return;
-    chars[idx]=Object.assign({},chars[idx],{nome:nome,signo:s,idade:mi,temperamento:document.getElementById('fTemp').value,apelidos:document.getElementById('fApel').value,aparencia:document.getElementById('fApar').value,profissao:document.getElementById('fProf').value,personalidade:document.getElementById('fPers').value,historia:document.getElementById('fHist').value,relacoes:document.getElementById('fRel').value,detalhes:document.getElementById('fDet').value,frase:document.getElementById('fFrase').value,status:document.getElementById('fStatus').value});
-    await salvarDB(chars[idx]);
-    chars.sort(function(a,b){if(a.isDemo&&!b.isDemo)return-1;if(!a.isDemo&&b.isDemo)return 1;return a.nome.localeCompare(b.nome,'pt-BR');});
-    renderLista(chars);abrir(ativo);
+    chars[idx]=Object.assign({},chars[idx],{nome:nome,signo:s,idade:mi,temperamento:document.getElementById('fTemp').value,apelidos:document.getElementById('fApel').value,aparenca:document.getElementById('fApar').value,profissao:document.getElementById('fProf').value,personalidade:document.getElementById('fPers').value,historia:document.getElementById('fHist').value,relacoes:document.getElementById('fRel').value,detalhes:document.getElementById('fDet').value,frase:document.getElementById('fFrase').value,status:document.getElementById('fStatus').value});
+    await salvarDB(chars[idx]);chars.sort(function(a,b){if(a.isDemo&&!b.isDemo)return-1;if(!a.isDemo&&b.isDemo)return 1;return a.nome.localeCompare(b.nome,'pt-BR');});renderLista(chars);abrir(ativo);
   }else{
-    var novo={id:'tmp_'+Date.now(),nome:nome,signo:s,idade:mi,temperamento:document.getElementById('fTemp').value,apelidos:document.getElementById('fApel').value,aparencia:document.getElementById('fApar').value,profissao:document.getElementById('fProf').value,personalidade:document.getElementById('fPers').value,historia:document.getElementById('fHist').value,relacoes:document.getElementById('fRel').value,detalhes:document.getElementById('fDet').value,frase:document.getElementById('fFrase').value,status:document.getElementById('fStatus').value,atributos:{},ideias:[],timeline:[],episodios:[],arco:'',tags:[],foto:''};
-    chars.push(novo);
-    await salvarDB(novo);
-    chars.sort(function(a,b){if(a.isDemo&&!b.isDemo)return-1;if(!a.isDemo&&b.isDemo)return 1;return a.nome.localeCompare(b.nome,'pt-BR');});
-    renderLista(chars);document.getElementById('cnt').textContent=chars.length;
-    var novoId=novo.id;
-    var p2=chars.filter(function(x){return x.id===novoId&&!x.isDemo;})[0];if(p2)abrir(p2.id);
+    var novo={id:'tmp_'+Date.now(),nome:nome,signo:s,idade:mi,temperamento:document.getElementById('fTemp').value,apelidos:document.getElementById('fApel').value,aparenca:document.getElementById('fApar').value,profissao:document.getElementById('fProf').value,personalidade:document.getElementById('fPers').value,historia:document.getElementById('fHist').value,relacoes:document.getElementById('fRel').value,detalhes:document.getElementById('fDet').value,frase:document.getElementById('fFrase').value,status:document.getElementById('fStatus').value,atributos:{},ideias:[],timeline:[],episodios:[],arco:'',tags:[],foto:''};
+    chars.push(novo);await salvarDB(novo);chars.sort(function(a,b){if(a.isDemo&&!b.isDemo)return-1;if(!a.isDemo&&b.isDemo)return 1;return a.nome.localeCompare(b.nome,'pt-BR');});renderLista(chars);document.getElementById('cnt').textContent=chars.length;abrir(novo.id);
   }
   btn.disabled=false;btn.textContent=modoEd?'Salvar alterações':'Salvar';fecharEdit();
 }
 
-// COLAR
-function abrirColar(){document.getElementById('pasteArea').value='';document.getElementById('prevBox').classList.remove('show');document.getElementById('overlayColar').classList.add('open');}
-function fecharColar(){document.getElementById('overlayColar').classList.remove('open');}
+function capitalizar(str){
+  if(!str)return'';
+  return str.toLowerCase().replace(/(^|[\s-])(\S)/g,function(m,s,l){return s+l.toUpperCase();});
+}
 
 function parseTexto(txt){
   function g(pats){for(var i=0;i<pats.length;i++){var m=txt.match(pats[i]);if(m&&m[1]&&m[1].trim())return m[1].trim();}return'';}
@@ -968,26 +699,31 @@ function parseTexto(txt){
     for(var j=0;j<fins.length;j++){var fi=sub.search(fins[j]);if(fi!==-1)sub=sub.slice(0,fi).trim();}
     return sub.trim();
   }
-  // fins: qualquer campo em negrito, com emoji, com bullet, ou linha em branco seguida de maiúscula
-  var fins=[/\n\*\*[^*]+\*\*:/,/\n🔹/,/\n📌/,/\n■/,/\n[A-ZÁÉÍÓÚ][a-záéíóú]+:/];
-  function capitalizar(str){if(!str)return'';return str.replace(/\b\w/g,function(l){return l.toUpperCase();});}
-  var nomeRaw=g([/\*?\*?Nome Completo\*?\*?:\s*\*?\*?(.+?)\*?\*?\s*$/im,/\*?\*?Nome\*?\*?:\s*\*?\*?(.+?)\*?\*?\s*$/im,/FICHA DE PERSONAGEM[^a-z\n]*[–—-]\s*(.+)/i]);
-  // Se o nome estiver todo em maiúsculas, converte para Title Case
-  var nomeNorm=nomeRaw&&nomeRaw===nomeRaw.toUpperCase()&&nomeRaw.length>2?capitalizar(nomeRaw.toLowerCase()):nomeRaw;
+  var fins=[/\n\*\*[^*]+\*\*:/,/\n[\u{1F539}\u{1F4CC}\u25A0]/u,/\n[A-ZÁÉÍÓÚÂÊÎÔÛÃÕÀÈÌÒÙÇ][a-záéíóúâêîôûãõàèìòùç]+:/];
+  var nomeRaw=g([/(?:[\u{1F539}\u{1F4CC}]\s*)?(?:\*\*)?Nome Completo(?:\*\*)?:\s*(?:\*\*)?(.+?)(?:\*\*)?\s*$/im,/(?:[\u{1F539}\u{1F4CC}]\s*)?(?:\*\*)?Nome(?:\*\*)?:\s*(?:\*\*)?(.+?)(?:\*\*)?\s*$/im]);
+  var nomeUpper=nomeRaw?nomeRaw.replace(/[^a-zA-ZÀ-ÿ\s]/g,'').trim():'';
+  var nomeNorm=nomeRaw&&nomeUpper&&nomeUpper===nomeUpper.toUpperCase()&&nomeRaw.length>2?capitalizar(nomeRaw):nomeRaw;
+  var idadeRaw=g([/(?:[\u{1F539}]\s*)?(?:\*\*)?Idade(?:\*\*)?:\s*(.+)/im]);
+  var signoRaw=g([/(?:[\u{1F539}]\s*)?(?:\*\*)?Signo(?:\*\*)?:\s*(.+)/im]);
+  var dataRaw=g([/(?:[\u{1F539}]\s*)?(?:\*\*)?Data de Nascimento(?:\*\*)?:\s*(.+)/im,/(?:[\u{1F539}]\s*)?(?:\*\*)?Nascimento(?:\*\*)?:\s*(.+)/im]);
+  var dataFmt='';if(dataRaw){var dm=dataRaw.match(/(\d{2}\/\d{2})/);if(dm)dataFmt=dm[1];}
+  var idade='';
+  if(idadeRaw&&signoRaw&&dataFmt)idade=idadeRaw+' | '+signoRaw+' ('+dataFmt+')';
+  else if(idadeRaw&&signoRaw)idade=idadeRaw+' | '+signoRaw;
+  else if(idadeRaw&&dataFmt)idade=idadeRaw+' ('+dataFmt+')';
+  else idade=idadeRaw;
+  if(!signoRaw&&idade){var sm2=idade.match(/\|\s*(.+?)\s*(?:\(|$)/);if(sm2)signoRaw=sm2[1].trim();}
   return{
-    nome:nomeNorm,
-    idade:g([/\*?\*?Idade\*?\*?:\s*(.+)/i]),
-    data:g([/\*?\*?Data de Nascimento\*?\*?:\s*(.+)/i]),
-    signo:g([/\*?\*?Signo\*?\*?:\s*(.+)/i]),
-    temperamento:g([/\*?\*?Temperamento\*?\*?:\s*(.+)/i]),
-    apelidos:bloco([/\*?\*?Apelidos?\*?\*?:/i],fins),
-    aparencia:bloco([/\*?\*?Apar[eê]ncia\*?\*?:/i],fins),
-    profissao:bloco([/\*?\*?Profiss[aã]o\*?\*?:/i],fins),
-    personalidade:bloco([/\*?\*?Personalidade\*?\*?:/i],fins),
-    historia:bloco([/\*?\*?Hist[oó]ria\*?\*?:/i],fins),
-    relacoes:bloco([/\*?\*?Rela[cç][oõ]es?\*?\*?:/i],fins),
-    detalhes:bloco([/\*?\*?Curiosidades?\*?\*?:/i,/\*?\*?Detalhes?\*?\*?:/i],fins),
-    frase:g([/\*?\*?Frase\s*(?:Marcante)?\*?\*?:\s*["""']?(.+?)["""']?\s*$/im])
+    nome:nomeNorm,signo:signoRaw,idade:idade,
+    temperamento:g([/(?:[\u{1F539}]\s*)?(?:\*\*)?Temperamento(?:\*\*)?:\s*(.+)/im]),
+    apelidos:bloco([/(?:[\u{1F539}]\s*)?(?:\*\*)?Apelidos?(?:\*\*)?:/im],fins),
+    aparenca:bloco([/(?:[\u{1F539}]\s*)?(?:\*\*)?Apar[eê]ncia(?:\*\*)?:/im],fins),
+    profissao:bloco([/(?:[\u{1F539}]\s*)?(?:\*\*)?Profiss[aã]o(?:\*\*)?:/im],fins),
+    personalidade:bloco([/(?:[\u{1F539}]\s*)?(?:\*\*)?Personalidade(?:\*\*)?:/im],fins),
+    historia:bloco([/(?:[\u{1F539}]\s*)?(?:\*\*)?Hist[oó]ria(?:\*\*)?:/im],fins),
+    relacoes:bloco([/(?:[\u{1F539}]\s*)?(?:\*\*)?Rela[cç][oõ]es?(?:\*\*)?:/im],fins),
+    detalhes:bloco([/(?:[\u{1F539}]\s*)?(?:\*\*)?Curiosidades?(?:\*\*)?:/im,/(?:[\u{1F539}]\s*)?(?:\*\*)?Detalhes?(?:\*\*)?:/im],fins),
+    frase:g([/(?:[\u{1F539}]\s*)?(?:\*\*)?Frase\s*(?:Marcante)?(?:\*\*)?:\s*[""\u201c\u201d']?(.+?)[""\u201c\u201d']?\s*$/im])
   };
 }
 
@@ -1000,24 +736,19 @@ function parsePreview(){
   document.getElementById('prevBox').classList.add('show');
 }
 
+function abrirColar(){document.getElementById('pasteArea').value='';document.getElementById('prevBox').classList.remove('show');document.getElementById('overlayColar').classList.add('open');}
+function fecharColar(){document.getElementById('overlayColar').classList.remove('open');}
+
 async function salvarColado(){
   var txt=document.getElementById('pasteArea').value.trim();if(!txt){alert('Cole o texto primeiro!');return;}
   var d=parseTexto(txt);if(!d.nome){alert('Não consegui identificar o nome. Verifique o formato.');return;}
-  var signo=d.signo||'';var idade=d.idade||'';
-  if(d.idade&&d.signo&&d.data)idade=d.idade+' | '+d.signo+' ('+d.data+')';
-  else if(d.idade&&d.signo)idade=d.idade+' | '+d.signo;
-  var novo={id:'tmp_'+Date.now(),nome:d.nome,signo:signo,idade:idade,temperamento:d.temperamento||'',apelidos:d.apelidos||'',aparencia:d.aparencia||'',profissao:d.profissao||'',personalidade:d.personalidade||'',historia:d.historia||'',relacoes:d.relacoes||'',detalhes:d.detalhes||'',frase:d.frase||'',status:'ativo',atributos:{},ideias:[],timeline:[],episodios:[],arco:'',tags:[],foto:''};
-  chars.push(novo);
-  await salvarDB(novo);
-  chars.sort(function(a,b){if(a.isDemo&&!b.isDemo)return-1;if(!a.isDemo&&b.isDemo)return 1;return a.nome.localeCompare(b.nome,'pt-BR');});
-  fecharColar();renderLista(chars);document.getElementById('cnt').textContent=chars.length;
-  var novoId=novo.id;abrir(novoId);
+  var novo={id:'tmp_'+Date.now(),nome:d.nome,signo:d.signo||'',idade:d.idade||'',temperamento:d.temperamento||'',apelidos:d.apelidos||'',aparenca:d.aparenca||'',profissao:d.profissao||'',personalidade:d.personalidade||'',historia:d.historia||'',relacoes:d.relacoes||'',detalhes:d.detalhes||'',frase:d.frase||'',status:'ativo',atributos:{},ideias:[],timeline:[],episodios:[],arco:'',tags:[],foto:''};
+  chars.push(novo);await salvarDB(novo);chars.sort(function(a,b){if(a.isDemo&&!b.isDemo)return-1;if(!a.isDemo&&b.isDemo)return 1;return a.nome.localeCompare(b.nome,'pt-BR');});fecharColar();renderLista(chars);document.getElementById('cnt').textContent=chars.length;abrir(novo.id);
 }
 
-// ANIVERSÁRIOS
 var MESES=['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
 function extrairData(p){var m=(p.idade||'').match(/\((\d{2})\/(\d{2})\)/);if(m)return{dia:parseInt(m[1]),mes:parseInt(m[2])};return null;}
-function diasAte(dia,mes){var hoje=new Date(),ano=hoje.getFullYear();var aniv=new Date(ano,mes-1,dia);if(aniv<hoje)aniv=new Date(ano+1,mes-1,dia);return Math.round((aniv-hoje)/(864e5));}
+function diasAte(dia,mes){var hoje=new Date(),ano=hoje.getFullYear();var aniv=new Date(ano,mes-1,dia);if(aniv<hoje)aniv=new Date(ano+1,mes-1,dia);return Math.round((aniv-hoje)/864e5);}
 function abrirAniv(){renderAniv('');document.getElementById('anivSearch').value='';document.getElementById('overlayAniv').classList.add('open');}
 function fecharAniv(){document.getElementById('overlayAniv').classList.remove('open');}
 function renderAniv(q){
@@ -1037,38 +768,32 @@ function renderAniv(q){
   if(!lista.length){var li=document.createElement('li');li.style.cssText='padding:24px;text-align:center;color:var(--muted2);font-style:italic;font-size:14px';li.textContent='Nenhum personagem com data cadastrada.';ul.appendChild(li);}
 }
 
-// MAPA
 function abrirMapa(){renderMapa();document.getElementById('overlayMapa').classList.add('open');}
 function fecharMapa(){document.getElementById('overlayMapa').classList.remove('open');}
 function renderMapa(){
   var canvas=document.getElementById('mapaCanvas');
-  if(chars.length<=3){canvas.innerHTML='<div class="mapa-empty">Adicione mais personagens para ver o mapa de relações.</div>';return;}
+  if(chars.length<=3){canvas.innerHTML='<div class="mapa-empty">Adicione mais personagens para ver o mapa.</div>';return;}
   var w=canvas.offsetWidth||300;var h=300;canvas.style.height=h+'px';
-  var angleStep=2*Math.PI/chars.length;var r=Math.min(w,h)*0.35;var cx=w/2;var cy=h/2;
+  var step=2*Math.PI/chars.length;var r=Math.min(w,h)*0.35;var cx=w/2;var cy=h/2;
   var html='<svg width="'+w+'" height="'+h+'" style="position:absolute;top:0;left:0">';
   chars.forEach(function(p,i){
-    var angle=angleStep*i-Math.PI/2;var x=cx+r*Math.cos(angle);var y=cy+r*Math.sin(angle);
+    var a=step*i-Math.PI/2;var x=cx+r*Math.cos(a);var y=cy+r*Math.sin(a);
     chars.forEach(function(q,j){
-      if(j<=i)return;
-      var angle2=angleStep*j-Math.PI/2;var x2=cx+r*Math.cos(angle2);var y2=cy+r*Math.sin(angle2);
-      if(p.relacoes&&p.relacoes.toLowerCase().indexOf(q.nome.split(' ')[0].toLowerCase())!==-1){
-        html+='<line x1="'+x+'" y1="'+y+'" x2="'+x2+'" y2="'+y2+'" stroke="rgba(107,31,42,.15)" stroke-width="1"/>';
+      if(j<=i)return;var a2=step*j-Math.PI/2;var x2=cx+r*Math.cos(a2);var y2=cy+r*Math.sin(a2);
+      if(p.relacoes&&q.nome&&p.relacoes.toLowerCase().indexOf(q.nome.split(' ')[0].toLowerCase())!==-1){
+        html+='<line x1="'+x+'" y1="'+y+'" x2="'+x2+'" y2="'+y2+'" stroke="rgba(107,31,42,.15)" stroke-width="1.5"/>';
       }
     });
   });
   html+='</svg>';
   chars.forEach(function(p,i){
-    var angle=angleStep*i-Math.PI/2;var x=cx+r*Math.cos(angle)-28;var y=cy+r*Math.sin(angle)-28;
-    var nome=p.nome.split(' ')[0];
-    html+='<div class="mapa-node" style="left:'+x+'px;top:'+y+'px" title="'+p.nome+'" onclick="fecharMapa();abrir(\''+p.id+'\')">'+nome+'</div>';
+    var a=step*i-Math.PI/2;var x=cx+r*Math.cos(a)-28;var y=cy+r*Math.sin(a)-28;
+    html+='<div class="mapa-node" style="left:'+x+'px;top:'+y+'px" onclick="fecharMapa();abrir(\''+p.id+'\')" title="'+p.nome+'">'+p.nome.split(' ')[0]+'</div>';
   });
   canvas.innerHTML=html;
 }
 
-// FECHAR MODAIS
-['overlayEdit','overlayColar','overlayAniv','overlayMapa'].forEach(function(id){
-  document.getElementById(id).addEventListener('click',function(e){if(e.target===this)this.classList.remove('open');});
-});
+['overlayEdit','overlayColar','overlayAniv','overlayMapa'].forEach(function(id){document.getElementById(id).addEventListener('click',function(e){if(e.target===this)this.classList.remove('open');});});
 document.addEventListener('keydown',function(e){if(e.key==='Enter'&&e.ctrlKey&&document.activeElement.id==='ii_inp')addIdeia();});
 </script>
 </body>
